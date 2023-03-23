@@ -1,0 +1,52 @@
+.card_content {
+  padding: 1.5rem;
+}
+
+.text {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.sql {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.worker {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  padding-top: 1.5rem;
+}
+
+.sub_title {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: var(--navbar-color);
+}
+
+.log_block {
+  padding-top: 0.5rem;
+}
+
+.text_gray {
+  color: var(--block-title-color);
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.text_black {
+  font-family: monospace;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}

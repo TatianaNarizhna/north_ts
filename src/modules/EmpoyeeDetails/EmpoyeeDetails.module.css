@@ -1,0 +1,49 @@
+.header {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--border-gray-color);
+  background-color: var(--title-white-color);
+  border-radius: 5px;
+}
+
+.card_header {
+  padding: 0.9rem 1rem 0.9rem 0;
+  flex-grow: 1;
+  font-weight: 700;
+}
+
+.svg_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.card_content {
+  background-color: var(--title-white-color);
+  padding: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.list_field {
+  margin-bottom: 0.75rem;
+}
+
+.label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.name {
+  font-size: 15px;
+}
+
+.link {
+  color: var(--link-color-blue);
+}

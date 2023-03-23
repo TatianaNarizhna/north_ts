@@ -1,0 +1,43 @@
+.main_section {
+  padding-top: 25px;
+  padding-left: 270px;
+  background-color: var(--body-background-color);
+  height: 100vh;
+  overflow: auto;
+}
+
+.card_content {
+  padding: 1.5rem;
+  font-family: sans-serif;
+}
+
+.card_title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.card_subtitle {
+  padding-top: 0.5rem;
+}
+
+.card_subtitleGray {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: var(--block-title-color);
+  font-weight: normal;
+}
+
+.card_logo {
+  width: 24rem;
+  float: right;
+}
+
+.text_base {
+  padding-top: 1rem;
+  font-size: 0.97rem;
+  line-height: 1.5rem;
+}
+
+.card_link {
+  color: var(--link-color-blue);
+}

@@ -1,0 +1,18 @@
+/* .main_content {
+  padding-top: 83px;
+  padding-left: 268px;
+  padding-right: 25px;
+} */
+
+.page_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border-gray-color);
+}
+
+.footer_info {
+  font-size: 12px;
+}

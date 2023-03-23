@@ -1,0 +1,22 @@
+.button_back {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--title-white-color);
+    padding: 0.90rem 1.1rem;
+    border: 1px solid var(--border-gray-color);
+}
+
+.button {
+    border-radius: 0.25rem;
+    outline: none;
+    border-width: 0px;
+    border-color: var(--button-background-color);
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    padding: 0.7rem 1.3rem;
+    color: var(--title-white-color);
+    background-color: var(--button-background-color);
+    font-size: 15px;
+}

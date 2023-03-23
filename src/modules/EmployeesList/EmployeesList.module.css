@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--border-gray-color);
+  background-color: var(--title-white-color);
+  border-radius: 5px;
+}
+
+.card_header {
+  padding: 0.9rem 1rem;
+  flex-grow: 1;
+  font-weight: 700;
+}
+
+.avatar_img {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.svg_container {
+  padding: 12px 15px 6px;
+  border-radius: 50%;
+}
+
+.radius {
+  border-radius: 50%;
+}
+
+.link {
+  color: var(--link-color-blue);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--title-white-color);
+}

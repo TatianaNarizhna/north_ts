@@ -1,0 +1,29 @@
+.dropdown {
+  position: absolute;
+  top: 100%;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  background-color: var(--title-white-color);
+  border: 0 solid #e5e7eb;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  border-top-width: 2px;
+  border-color: var(--border-backdrop-color);
+  left: 0;
+  min-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.drop_item {
+  display: flex;
+  padding: 0.5rem 0.75rem;
+}
+
+.drop_link {
+  margin-left: 0.5rem;
+  color: var(--tw-ring-offset-shadow);
+}

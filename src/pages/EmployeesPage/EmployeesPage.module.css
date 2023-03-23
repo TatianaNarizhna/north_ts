@@ -1,0 +1,12 @@
+.page_footer {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  background-color: white;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border-gray-color);
+}
+
+.footer_info {
+  font-size: 12px;
+}
