@@ -5,7 +5,8 @@ import s from './ProductsDetails.module.css';
 
 
 const ProductsDetails = ({ details}) => {
-   const {productName, supplier, qtyPerUnit, unitPrice, unitsInStock, unitsInOrder,reorderLevel, discontinued } = details;
+    let obj = details[0];
+   const {productName, supplier, qtyPerUnit, unitPrice, unitsInStock, unitsInOrder,reorderLevel, discontinued } = obj || {};
 
     return (
         <Section>

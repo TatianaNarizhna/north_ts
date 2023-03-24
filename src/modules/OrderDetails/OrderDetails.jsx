@@ -5,8 +5,9 @@ import GoBackButton from '../GoBackButton/GoBackButton';
 
 import s from './OrderDetails.module.css';
 
-const OrderDetails = ({ details, productsInfo }) => {
-    const {CustomerId, ShipName, TotalProducts, TotalProductsItems, TotalProductsPrice, TotalProductsDiscount, CompanyShipper, Freight, OrderDate, RequiredDate, ShippedDate, ShipCity, ShipRegion, PostalCode, ShipCountry } = details;
+const OrderDetails = ({ productsInfo, details }) => {
+ let obj = details[0]
+    const {CustomerId, ShipName, TotalProducts, TotalProductsItems, TotalProductsPrice, TotalProductsDiscount, CompanyShipper, Freight, OrderDate, RequiredDate, ShippedDate, ShipCity, ShipRegion, PostalCode, ShipCountry } = obj || {};
 
  
      return (

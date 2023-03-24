@@ -1,27 +1,32 @@
+import React from 'react';
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Search from '../../svgFile/symbol-defs.svg';
 import Section from '../../modules/Section/Section';
 import * as dataApi from '../../services/dataApi';
 import { MyContext } from '../../App';
+import { SqlQuery } from '../../types/itemTypes';
+import { SearchResponse } from '../../types/searchTypes';
+import { SearchCustomersItem } from '../../types/searchTypes';
+import { SearchProductsItem } from '../../types/searchTypes'; 
 import s from './SearchPage.module.css'
 
-const SearchPage = () => {
-    const [selectedValue, setSelectedValue] = useState('products');
-    const [searchTextInput, setSearchTextInput] = useState('');
-    const [responseData, setResponseData] = useState([]);
+const SearchPage: React.FC = () => {
+    const [selectedValue, setSelectedValue] = useState<string>('products');
+    const [searchTextInput, setSearchTextInput] = useState<string>('');
+    const [responseData, setResponseData] = useState<SearchCustomersItem[] | SearchProductsItem[] | null>(null);
     const [loader, setLoader] = useState(false);
 
     const {  handleDashChange } = useContext(MyContext);
 
-    const handleRadioChange = (e) => {
+    const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSelectedValue(e.target.value);
 
         if(searchTextInput) {
-            dataApi.getSearchInformation(e.target.value, searchTextInput).then(res => {
+            dataApi.getSearchInformation(e.target.value, searchTextInput).then((res: SearchResponse) => {
                 setResponseData(res.data)
-                handleDashChange((prevState) => {
-                    const updatedDash = [res.sqlQueries[0], ...prevState, ]
+                handleDashChange((prevState: SqlQuery[][]): SqlQuery[][] => {
+                    const updatedDash = [res.sqlQueries, ...prevState, ]
                     return updatedDash;
                   });
 
@@ -29,22 +34,28 @@ const SearchPage = () => {
         }
       };
 
-    const handleInput = (e) => {
+    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTextInput(e.target.value);
     };
 
-    const formSubmit = e => {
+    const formSubmit = (e: React.ChangeEvent<unknown>) => {
         e.preventDefault();
-        dataApi.getSearchInformation(selectedValue, searchTextInput).then(res => {
+        dataApi.getSearchInformation(selectedValue, searchTextInput).then((res: SearchResponse) => {
             setResponseData(res.data)
 
-            handleDashChange((prevState) => {
-                const updatedDash = [res.sqlQueries[0], ...prevState, ]
+            handleDashChange((prevState: SqlQuery[][]): SqlQuery[][] => {
+                const updatedDash = [res.sqlQueries, ...prevState, ]
                 return updatedDash;
               });
          }
         )
     }
+
+    const fetchSearchResult = (searchResult: SearchProductsItem[] | SearchCustomersItem[]): searchResult is SearchProductsItem[] => {
+        console.log(searchResult[0])
+		return (searchResult[0] as SearchProductsItem) !== undefined;
+	};
+    
 
     return (
         <Section>
@@ -107,7 +118,7 @@ const SearchPage = () => {
             <output name="result" htmlFor="searchInput">
 					{responseData ? (
 						<>
-							{selectedValue === 'products'
+							{fetchSearchResult(responseData)
 								? responseData.map(({id, name, quantPerUnit, price, stock}, index) => (
                                     <div key={id}>                   
                                       <p className={s.output}>

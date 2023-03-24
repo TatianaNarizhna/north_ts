@@ -6,7 +6,8 @@ import GoBackButton from '../GoBackButton/GoBackButton';
 import s from './CustomerDetails.module.css';
 
 const CustomerDetails = ({ details}) => {
-    const {CompanyName, ContactName, ContactTitle, Address, City, PostalCode, Region, Country, Phone, Fax } = details;
+    let obj = details[0];
+    const {CustomerID, CompanyName, ContactName, ContactTitle, Address, City, PostalCode, Region, Country, Phone, Fax } = obj || {};
  
      return (
          <Section>

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -16,7 +17,7 @@ type Acc = {
     selectLeftJoin: number
 }
 
-const DashboardPage = ({ dash }: IProps) => {
+const DashboardPage: React.FC<IProps> = ({ dash }: IProps) => {
    const [lastLog, setLastLog] = useState<SqlQuery[][]>([]);
    const [metrics, setMetrics] = useState<Acc>({
     resultsCount: 0, 

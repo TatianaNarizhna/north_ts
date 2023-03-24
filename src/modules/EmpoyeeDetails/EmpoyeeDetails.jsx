@@ -6,12 +6,8 @@ import GoBackButton from '../GoBackButton/GoBackButton';
 import s from './EmpoyeeDetails.module.css';
 
 const EmployeeDetails = ({ employeeInfo }) => {
-    // const [info] = employeeInfo;
-    const {FirstName, LastName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, PostalCode, Country, HomePhone, Extension, Notes, ReportsTo, reportsName } = employeeInfo;
-
-    console.log(employeeInfo)
-
-    // let date1 = String(Extension)
+    let obj = employeeInfo[0];
+    const {FirstName, LastName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, PostalCode, Country, HomePhone, Extension, Notes, ReportsTo, reportsName } = obj || {};
 
     return (
         <Section>

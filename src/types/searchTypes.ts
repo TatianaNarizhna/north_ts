@@ -25,3 +25,8 @@ export type SearchCustomersResponse = {
   data: SearchCustomersItem[];
   sqlQueries: SqlQuery[];
 };
+
+export type SearchResponse = {
+  data: SearchProductsItem[] | SearchCustomersItem[];
+  sqlQueries: SqlQuery[];
+};

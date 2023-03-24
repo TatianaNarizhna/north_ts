@@ -4,7 +4,8 @@ import GoBackButton from '../GoBackButton/GoBackButton';
 import s from './SupplierDetails.module.css';
 
 const SupplierDetails = ({ details }) => {
-    const {Address, City, CompanyName, ContactName, ContactTitle, Country, Phone, PostalCode, Region } = details;
+    let obj = details[0];
+    const {Address, City, CompanyName, ContactName, ContactTitle, Country, Phone, PostalCode, Region } = obj || {};
 
 
     return (
