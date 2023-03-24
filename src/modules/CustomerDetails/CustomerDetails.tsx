@@ -1,11 +1,17 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import Section from "../Section/Section";
 import Ballot from '../../svgFile/symbol-defs.svg';
 import GoBackButton from '../GoBackButton/GoBackButton';
+import { CustomerItem } from '../../types/itemTypes';
 
 import s from './CustomerDetails.module.css';
 
-const CustomerDetails = ({ details}) => {
+interface IDetails {
+    details: CustomerItem[];
+}
+
+const CustomerDetails: React.FC<IDetails> = ({ details}: IDetails) => {
     let obj = details[0];
     const {CustomerID, CompanyName, ContactName, ContactTitle, Address, City, PostalCode, Region, Country, Phone, Fax } = obj || {};
  

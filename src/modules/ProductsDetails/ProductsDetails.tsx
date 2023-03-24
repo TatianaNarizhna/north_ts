@@ -1,10 +1,15 @@
+import React from 'react';
 import Section from "../Section/Section";
 import Ballot from '../../svgFile/symbol-defs.svg';
 import GoBackButton from '../GoBackButton/GoBackButton';
+import { ProductItem } from '../../types/itemTypes';
 import s from './ProductsDetails.module.css';
 
+interface IProdProps {
+    details: ProductItem[];
+}
 
-const ProductsDetails = ({ details}) => {
+const ProductsDetails: React.FC<IProdProps> = ({ details}) => {
     let obj = details[0];
    const {productName, supplier, qtyPerUnit, unitPrice, unitsInStock, unitsInOrder,reorderLevel, discontinued } = obj || {};
 

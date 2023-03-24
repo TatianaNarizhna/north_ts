@@ -1,11 +1,17 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import Section from "../Section/Section";
 import Ballot from '../../svgFile/symbol-defs.svg';
 import GoBackButton from '../GoBackButton/GoBackButton';
+import { EmployeeItem } from '../../types/itemTypes';
 
 import s from './EmpoyeeDetails.module.css';
 
-const EmployeeDetails = ({ employeeInfo }) => {
+interface IEmplProps {
+    employeeInfo: EmployeeItem[];
+}
+
+const EmployeeDetails: React.FC<IEmplProps> = ({ employeeInfo }) => {
     let obj = employeeInfo[0];
     const {FirstName, LastName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, PostalCode, Country, HomePhone, Extension, Notes, ReportsTo, reportsName } = obj || {};
 

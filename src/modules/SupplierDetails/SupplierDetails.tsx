@@ -1,9 +1,15 @@
+import React from 'react';
 import Section from '../Section/Section';
 import Ballot from '../../svgFile/symbol-defs.svg';
 import GoBackButton from '../GoBackButton/GoBackButton';
+import { SupplierItem } from '../../types/itemTypes';
 import s from './SupplierDetails.module.css';
 
-const SupplierDetails = ({ details }) => {
+interface ISupplProps {
+    details: SupplierItem[];
+}
+
+const SupplierDetails:React.FC<ISupplProps> = ({ details }) => {
     let obj = details[0];
     const {Address, City, CompanyName, ContactName, ContactTitle, Country, Phone, PostalCode, Region } = obj || {};
 

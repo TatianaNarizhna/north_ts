@@ -1,8 +1,12 @@
+import React from 'react';
 import { useNavigate } from "react-router-dom";
 import s from './GoBackButton.module.css'
 
+interface IBackButtonProps {
+   path: string;
+ }
 
-function BackButton({ path }) {
+const BackButton: React.FC<IBackButtonProps> = ({ path }) => {
     const navigate = useNavigate();
   
     const handleClick = () => {

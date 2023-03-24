@@ -1,7 +1,8 @@
+import React from 'react';
 import Link from '../../svgFile/symbol-defs.svg';
 import s from './Dropdown.module.css';
 
-const Dropdown = () => {
+const Dropdown: React.FC = () => {
     return (
         <div className={s.dropdown}>
             <a className={s.drop_item} href="https://blog.cloudflare.com/introducing-d1/">

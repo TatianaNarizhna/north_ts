@@ -1,9 +1,15 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import Redo from "../../svgFile/symbol-defs.svg";
+import { CustomerRow } from '../../types/pageTypes';
 
 import s from './CustomersList.module.css';
 
-const CustomersList = ({ customers }) => {
+interface ICustomerProps {
+  customers: CustomerRow[];
+}
+
+const CustomersList: React.FC<ICustomerProps> = ({ customers }) => {
 
       return (
             <div>

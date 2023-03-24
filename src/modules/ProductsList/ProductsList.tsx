@@ -1,8 +1,14 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import Redo from "../../svgFile/symbol-defs.svg";
+import { ProductsRow } from '../../types/pageTypes';
 import s from './ProductsList.module.css';
 
-const ProductsList = ({ products }) => {
+interface IProdProps {
+  products: ProductsRow[];
+}
+
+const ProductsList:React.FC<IProdProps> = ({ products }) => {
     return (
           <div>
             <header className={s.header}>

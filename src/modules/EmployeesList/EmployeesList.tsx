@@ -1,8 +1,15 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import Redo from "../../svgFile/symbol-defs.svg";
+import { EmployeesRow } from '../../types/pageTypes';
 import s from './EmployeesList.module.css';
 
-const EmployeesList = ({ employees }) => {
+interface IEmplProps {
+  employees: EmployeesRow[];
+}
+
+
+const EmployeesList: React.FC<IEmplProps> = ({ employees }) => {
     return (
         <div>
           <header className={s.header}>

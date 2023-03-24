@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import Icons from '../../svgFile/symbol-defs.svg';
 import s from "./navbar.module.css";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
 return (
  <aside className={s.menu}>
     <div className={s.title}><p><span className={s.weight}>Northwind</span> Traders</p></div>

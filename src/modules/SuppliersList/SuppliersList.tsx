@@ -1,10 +1,14 @@
+import React from 'react';
 import { Link } from "react-router-dom"
 import Redo from "../../svgFile/symbol-defs.svg"
+import { SuppliersRow } from '../../types/pageTypes';
 import s from './SuppliersList.module.css'
 
+interface ISupplProps {
+  suppliers: SuppliersRow[];
+}
 
-
-const SuppliersList = ({suppliers}) => {
+const SuppliersList:React.FC<ISupplProps> = ({suppliers}) => {
 
     return (
     <section className={s.section}>

@@ -1,10 +1,17 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import Redo from "../../svgFile/symbol-defs.svg";
+import { OrderRow } from '../../types/pageTypes';
 import s from './OrdersList.module.css';
 
-const OrdersList = ({ orders }) => {
+interface IOrdersProps {
+  orders: OrderRow[];
+}
 
-  const correctData = (shipped) => {
+
+const OrdersList: React.FC<IOrdersProps> = ({ orders }) => {
+
+  const correctData = (shipped: string) => {
     let shippedCorrection = shipped.split(" ");
     let firstElement = shippedCorrection[0];
     return firstElement;

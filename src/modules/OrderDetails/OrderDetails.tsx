@@ -1,11 +1,19 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import Section from "../Section/Section";
 import Ballot from '../../svgFile/symbol-defs.svg';
 import GoBackButton from '../GoBackButton/GoBackButton';
+import { ProductsInOrder } from '../../types/itemTypes';
+import { OrderItem } from '../../types/itemTypes';
 
 import s from './OrderDetails.module.css';
 
-const OrderDetails = ({ productsInfo, details }) => {
+interface IOrderProps {
+    productsInfo: ProductsInOrder[];
+    details: OrderItem[];
+}
+
+const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) => {
  let obj = details[0]
     const {CustomerId, ShipName, TotalProducts, TotalProductsItems, TotalProductsPrice, TotalProductsDiscount, CompanyShipper, Freight, OrderDate, RequiredDate, ShippedDate, ShipCity, ShipRegion, PostalCode, ShipCountry } = obj || {};
 
