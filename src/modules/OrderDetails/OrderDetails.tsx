@@ -113,7 +113,6 @@ const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) => {
           <table>
             <thead>
                 <tr>
-               
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Order Price</th>
@@ -122,14 +121,25 @@ const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) => {
                 </tr>
             </thead>
             <tbody>
-                {productsInfo.map(({ProductId, ProductName, Quantity, OrderPrice, TotalPrice, Discount}) => (
-                    <tr key={ProductId}>
+                {productsInfo.map(({ProductId, ProductName, Quantity, OrderPrice, TotalPrice, Discount}, i) => (
+                    <>
+                    <tr key={ProductId} className={s.tr_wide}>
                         <td><Link className={s.link} to={`/product/${ProductId}`}>{ProductName}</Link></td>
                         <td>{Quantity}</td>
                         <td>{OrderPrice}</td>
                         <td>{TotalPrice}</td>
                         <td>{Discount}</td> 
                     </tr>
+
+                    <tr key={i} className={s.tr_media}>
+                        <td><span className={s.span_media}>Product</span><Link className={s.link} to={`/product/${ProductId}`}>{ProductName}</Link></td>
+                        <td><span className={s.span_media}>Quantity</span>{Quantity}</td>
+                        <td><span className={s.span_media}>Order Price</span>{OrderPrice}</td>
+                        <td><span className={s.span_media}>Total Price</span>{TotalPrice}</td>
+                        <td><span className={s.span_media}>Discount</span>{Discount}</td> 
+                    </tr>
+
+                    </>
                 ))}
             </tbody>
           </table>

@@ -33,8 +33,9 @@ const EmployeesList: React.FC<IEmplProps> = ({ employees }) => {
               </tr>
           </thead>
           <tbody>
-              {employees.map(({id, name, title, city, phone, country, avatarLink}) => (
-                  <tr key={id}>
+              {employees.map(({id, name, title, city, phone, country, avatarLink}, i) => (
+                <>
+                  <tr key={id} className={s.tr_wide}>
                        <td>
                          <div className={s.avatar_img}>
                              <img src={avatarLink} alt="Employees letters" className={s.radius}/></div>
@@ -46,6 +47,21 @@ const EmployeesList: React.FC<IEmplProps> = ({ employees }) => {
                       <td>{country}</td>
                       
                   </tr>
+
+                  <tr key={i} className={s.tr_media}>
+                       <td>
+                         <div className={s.avatar_img}>
+                             <img src={avatarLink} alt="Employees letters" className={s.radius}/></div>
+                       </td>
+                      <td><span className={s.span_media}>Name</span><Link className={s.link} to={`/employee/${id}`}>{name}</Link></td>
+                      <td><span className={s.span_media}>Title</span>{title}</td>
+                      <td><span className={s.span_media}>City</span>{city}</td>
+                      <td><span className={s.span_media}>Phone</span>{phone}</td>
+                      <td><span className={s.span_media}>Country</span>{country}</td>
+                      
+                  </tr>
+
+                  </>
               ))}
           </tbody>
         </table>

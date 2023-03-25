@@ -34,9 +34,10 @@ const CustomersList: React.FC<ICustomerProps> = ({ customers }) => {
                   </tr>
               </thead>
               <tbody>
-                  {customers.map(({id, company, name, title, city, country, avatarLink }) => 
+                  {customers.map(({id, company, name, title, city, country, avatarLink }, i) => 
                     (
-                     <tr key={id}>
+                   <>
+                     <tr key={id} className={s.tr_wide}>
                        <td>
                          <div className={s.avatar_img}>
                              <img src={avatarLink} alt="Customers letters" className={s.radius}/></div>
@@ -47,6 +48,19 @@ const CustomersList: React.FC<ICustomerProps> = ({ customers }) => {
                       <td>{city}</td>
                       <td>{ country}</td>
                      </tr>
+
+                     <tr key={i} className={s.tr_media}>
+                       <td>
+                         <div className={s.avatar_img}>
+                             <img src={avatarLink} alt="Customers letters" className={s.radius}/></div>
+                       </td>
+                      <td><span className={s.span_media}>Company</span><Link className={s.link} to={`/customer/${id}`}>{company}</Link></td>
+                      <td><span className={s.span_media}>Contact</span>{name}</td>
+                      <td><span className={s.span_media}>Title</span>{title}</td>
+                      <td><span className={s.span_media}>City</span>{city}</td>
+                      <td><span className={s.span_media}>Country</span>{ country}</td>
+                     </tr>
+                     </>
                     )
                   )}
               </tbody>

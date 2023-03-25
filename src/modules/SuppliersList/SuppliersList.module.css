@@ -37,3 +37,36 @@
 tbody tr:nth-child(even) {
   background-color: var(--title-white-color);
 }
+
+.tr_media {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .tr_wide {
+    display: none;
+  }
+
+  .tr_media {
+    display: block;
+  }
+
+  .avatar_img {
+    margin-left: auto;
+    margin-right: auto;
+    height: 6rem;
+    width: 6rem;
+  }
+
+  .span_media {
+    font-weight: 600;
+  }
+
+  td:not(:first-child) {
+    border-bottom: 1px solid var(--border-gray-color);
+  }
+
+  td:last-child {
+    border-bottom: 4px solid var(--border-gray-color);
+  }
+}

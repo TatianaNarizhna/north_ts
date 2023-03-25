@@ -34,8 +34,9 @@ const SuppliersList:React.FC<ISupplProps> = ({suppliers}) => {
                 </tr>
             </thead>
             <tbody>
-                {suppliers.map(({id, avatarLink, companyName, name, title, city, country}) => (
-                    <tr key={id}>
+                {suppliers.map(({id, avatarLink, companyName, name, title, city, country}, i) => (
+                  <>
+                    <tr key={id} className={s.tr_wide}>
                         <td>
                             <div className={s.avatar_img}>
                                 <img src={avatarLink} alt="Contact letters" className={s.radius}/></div>
@@ -46,6 +47,21 @@ const SuppliersList:React.FC<ISupplProps> = ({suppliers}) => {
                         <td>{city}</td>
                         <td>{country}</td>
                     </tr>
+
+                    <tr key={avatarLink} className={s.tr_media}>
+                         <td>
+                             <div className={s.avatar_img}>
+                                 <img src={avatarLink} alt="Contact letters" className={s.radius}/></div>
+                           </td>
+                         <td>
+                          <span className={s.span_media}>Company</span>
+                          <Link className={s.link} to={`/supplier/${id}`}>Company {companyName}</Link></td>
+                         <td><span className={s.span_media}>Contact</span> {name}</td>
+                         <td><span className={s.span_media}>Title</span> {title}</td>
+                         <td><span className={s.span_media}>City</span> {city}</td>
+                         <td><span className={s.span_media}>Country</span> {country}</td>
+                         </tr>
+                         </>
                 ))}
             </tbody>
           </table>
@@ -56,3 +72,6 @@ const SuppliersList:React.FC<ISupplProps> = ({suppliers}) => {
 }
 
 export default SuppliersList
+
+{/* <span className="text-weight">Contact</span>
+{user.contactName} */}

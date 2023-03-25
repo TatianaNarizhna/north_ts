@@ -1,5 +1,6 @@
 .navPanel {
   display: flex;
+  justify-content: space-between;
   position: static;
   /* justify-content: space-between; */
   align-items: center;
@@ -17,7 +18,7 @@
 }
 
 .navBar_menu {
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-left: auto;
 }
 
@@ -47,4 +48,40 @@
 
 .navBar_link > span:not(:last-child) {
   margin-right: 8px;
+}
+
+.navBar_icons_media {
+  display: none;
+}
+
+.navBar_items_media {
+  display: none;
+ }
+
+@media screen and (max-width: 1024px) {
+  .navBar_icons_media {
+     display: block;
+  }
+
+  .time {
+    display: none;
+  }
+
+  .navPanel {
+    position: fixed;
+    left: 0;
+    right: 0;
+    min-width: 100vw;
+    padding-left: 1rem;
+  }
+
+ .navBar_items_wide {
+  display: none;
+ }
+
+ .navBar_items_media {
+  width: 180px;
+  display: flex;
+  flex-direction: row-reverse;
+ }
 }

@@ -41,3 +41,9 @@
 .card_link {
   color: var(--link-color-blue);
 }
+
+@media screen and (max-width: 1024px) {
+  .main_section {
+    padding: 25px;
+  }
+}

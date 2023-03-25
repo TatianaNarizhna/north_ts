@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import Menu from '../../svgFile/symbol-defs.svg';
 import Dropdown from "../Dropdown/Dropdown";
-import s from './Nav.module.css'
+import Navbar from "../NavBar/Navbar";
+import s from './Nav.module.css';
 
 const Nav = () => {
 const [time, setTime] = useState(new Date());
 const [activeLink, setActiveLink] = useState(false);
+
 
 useEffect(() => {
     const intervalId = setInterval(() => {
@@ -37,11 +39,22 @@ useEffect(() => {
                 {formatingTime(time)}
             </div>
 
-            <div className={s.navBar_menu}>
-              <div className={s.navBar_items}>
-                <div>
+               <div className={s.navBar_menu}>
+                 <div className={s.navBar_items}>
+
+                <div className={s.navBar_items_media}>
+                <a href="/" className={activeLinkColor(activeLink)}
+                onClick ={handleLinkClick}>
+                 <span className={s.navBar_icons}>
+                    <svg width={18} height={18} >
+                      <use xlinkHref={`${Menu}#icon-dots-three-vertical`} ></use>
+                    </svg>
+                  </span>
+                </a>
+                </div>
+
+                <div className={s.navBar_items_wide}>
                  <a href="/" className={activeLinkColor(activeLink)}
-            
                      onClick ={handleLinkClick}>
                    <span className={s.navBar_icons}>
                       <svg width={18} height={18} >
@@ -60,6 +73,7 @@ useEffect(() => {
                </div>
             
             </div>
+
         </div>
     )
 }

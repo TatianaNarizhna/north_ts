@@ -23,7 +23,7 @@ const OrdersList: React.FC<IOrdersProps> = ({ orders }) => {
     return (
           <div>
             <header className={s.header}>
-              <p className={s.card_header}>Products</p>
+              <p className={s.card_header}>Orders</p>
               <div className={s.svg_container}>
               <svg width={22} height={22} >
               <use xlinkHref={`${Redo}#icon-redo`} ></use>
@@ -34,7 +34,6 @@ const OrdersList: React.FC<IOrdersProps> = ({ orders }) => {
           <table>
             <thead>
                 <tr>
-               
                     <th>Id</th>
                     <th>Total Price</th>
                     <th>Products</th>
@@ -48,7 +47,8 @@ const OrdersList: React.FC<IOrdersProps> = ({ orders }) => {
             <tbody>
                 {orders.map(({OrderId, TotalProductsPrice, TotalProducts, TotalProductsItems, Shipped, ShipName, City, Country}) => 
                   (
-                    <tr key={OrderId}>
+                    <>
+                    <tr key={OrderId} className={s.tr_wide}>
                     <td><Link className={s.link} to={`/order/${OrderId}`}>{OrderId}</Link></td>
                     <td>{TotalProductsPrice}</td>
                     <td>{TotalProducts}</td>
@@ -58,6 +58,21 @@ const OrdersList: React.FC<IOrdersProps> = ({ orders }) => {
                     <td>{City}</td>
                     <td>{Country}</td>
                    </tr>
+
+
+                   <tr key={ShipName} className={s.tr_media}>
+                    <td>
+                      <span className={s.span_media}>Id</span>
+                      <Link className={s.link} to={`/order/${OrderId}`}>{OrderId}</Link></td>
+                    <td><span className={s.span_media}>Total Price</span>{TotalProductsPrice}</td>
+                    <td><span className={s.span_media}>Products</span>{TotalProducts}</td>
+                    <td><span className={s.span_media}>Quantity</span>{TotalProductsItems}</td>
+                    <td><span className={s.span_media}>Shipped</span>{ correctData(Shipped)}</td>
+                    <td><span className={s.span_media}>Ship Name</span>{ShipName}</td>
+                    <td><span className={s.span_media}>City</span>{City}</td>
+                    <td><span className={s.span_media}>Country</span>{Country}</td>
+                   </tr>
+                   </>
                   )
                 )}
             </tbody>

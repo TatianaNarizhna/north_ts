@@ -50,3 +50,33 @@
   border: 1px solid var(--border-gray-color);
   background-color: var(--title-white-color);
 }
+
+.tr_media {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .tr_wide {
+    display: none;
+  }
+
+  .tr_media {
+    display: block;
+  }
+
+  .span_media {
+    font-weight: 500;
+  }
+
+  td:not(:first-child) {
+    border-bottom: 1px solid var(--border-gray-color);
+  }
+
+  td:last-child {
+    border-bottom: 4px solid var(--border-gray-color);
+  }
+
+  .link {
+    color: var(--link-color-blue);
+  }
+}

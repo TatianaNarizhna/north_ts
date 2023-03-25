@@ -1,14 +1,32 @@
 import React from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 import Icons from '../../svgFile/symbol-defs.svg';
+import Menu from '../../svgFile/symbol-defs.svg';
 import s from "./navbar.module.css";
 
 const Navbar: React.FC = () => {
+    const [activeNavBar, setActiveNavBar] = useState(false);
+
+    const nav = useRef<HTMLDivElement>(null);
+    const svg = useRef<HTMLDivElement>(null);
+
+    const handleNavBarClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        e.preventDefault();
+        nav.current?.classList.toggle(`${s.open}`)
+        svg.current?.classList.toggle(`${s.nav_button_active}`)
+        setActiveNavBar(!activeNavBar);
+      };
+
+
 return (
- <aside className={s.menu}>
-    <div className={s.title}><p><span className={s.weight}>Northwind</span> Traders</p></div>
-    <p className={s.block_title}>GENERAL</p>
-    <NavLink to="/" className={s.link}>
+<>
+ {/* <div className={` ${activeNavBar ? s.menu_media : s.menu}`} > */}
+ <div className={s.flex}>
+    <div className={s.menu} ref={nav}>
+      <div className={s.title}><p><span className={s.weight}>Northwind</span> Traders</p></div>
+     <p className={s.block_title}>GENERAL</p>
+     <NavLink to="/" className={s.link}>
         <span className={s.svg_Style}>
              <svg width={25} height={25} >
                   <use xlinkHref={`${Icons}#icon-home`} ></use>
@@ -72,7 +90,23 @@ return (
          </span>
         <span>Search</span>
     </NavLink>
-</aside>
+   </div>
+
+    <div ref={svg} className={s.nav_button}>
+      <a href="/"  
+       onClick={handleNavBarClick}
+        >
+            <span className={s.navBar_icons_media}>
+              <svg width={18} height={18} >
+                <use xlinkHref={`${Menu}#icon-menu`} ></use>
+             </svg>
+            </span>
+     </a>
+     </div>
+
+ </div>
+    </>
+
 )
 }
 
