@@ -23,7 +23,7 @@ const SearchPage: React.FC = () => {
         setSelectedValue(e.target.value);
 
         if(searchTextInput) {
-            dataApi.getSearchInformation(e.target.value, searchTextInput).then((res:any) => {
+            dataApi.getSearchInformation(e.target.value, searchTextInput).then((res: SearchResponse) => {
                 setResponseData(res.data)
                 handleDashChange((prevState: SqlQuery[][]): SqlQuery[][] => {
                     const updatedDash = [res.sqlQueries, ...prevState, ]
@@ -40,7 +40,7 @@ const SearchPage: React.FC = () => {
 
     const formSubmit = (e: React.ChangeEvent<unknown>) => {
         e.preventDefault();
-        dataApi.getSearchInformation(selectedValue, searchTextInput).then((res: any) => {
+        dataApi.getSearchInformation(selectedValue, searchTextInput).then((res: SearchResponse) => {
             setResponseData(res.data)
 
             handleDashChange((prevState: SqlQuery[][]): SqlQuery[][] => {

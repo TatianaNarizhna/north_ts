@@ -18,8 +18,6 @@ const OrdersList: React.FC<IOrdersProps> = ({ orders }) => {
 
   }
 
-
-
     return (
           <div>
             <header className={s.header}>

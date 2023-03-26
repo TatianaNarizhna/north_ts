@@ -13,10 +13,38 @@ interface IOrderProps {
     details: OrderItem[];
 }
 
-const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) => {
+const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) => 
+
+{
  let obj = details[0]
     const {CustomerId, ShipName, TotalProducts, TotalProductsItems, TotalProductsPrice, TotalProductsDiscount, CompanyShipper, Freight, OrderDate, RequiredDate, ShippedDate, ShipCity, ShipRegion, PostalCode, ShipCountry } = obj || {};
 
+    // const correctData = (shipped: string | undefined | null) => {
+    //     if(typeof shipped !== 'undefined' && shipped !== null) {
+    //         let shippedCorrection = shipped.split(" ");
+    //         let firstElement = shippedCorrection[0];
+    //         return firstElement;
+    //     }
+    //   }
+
+    // const correctData = (shipped: string | undefined | null) => {
+    //     if(typeof shipped !== 'undefined' && shipped !== null) {
+    //         let shippedCorrection = shipped.split(" ");
+    //         let firstElement = shippedCorrection[0];
+    //         return firstElement;
+    //     }
+    //     return "";
+    // }
+
+    //   let shippedCorrection = OrderDate.split(" ");
+    //   console.log(shippedCorrection[0])
+
+    const correctData = (shipped: string) => {
+        let shippedCorrection = shipped.split(" ");
+        let firstElement = shippedCorrection[0];
+        return firstElement;
+    
+      }
  
      return (
          <>
@@ -29,8 +57,8 @@ const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) => {
                </div>
                 <p className={s.card_header}>Order information</p>
              </header>
- 
-             <div className={s.card_content}>
+
+             {obj &&     <div className={s.card_content}>
                  <div className={s.grid}>
                      <ul>
                          <li  className={s.list_field}>
@@ -53,11 +81,11 @@ const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) => {
                          </li>
                          <li className={s.list_field}>
                              <label className={s.label}>Total Price</label>
-                             <p className={s.name}>{TotalProductsPrice}</p>
+                             <p className={s.name}>${TotalProductsPrice}</p>
                          </li>
                          <li className={s.list_field}>
                              <label className={s.label}>Total Discount</label>
-                             <p className={s.name}>{TotalProductsDiscount}</p>
+                             <p className={s.name}>${TotalProductsDiscount}</p>
                          </li>
                          <li className={s.list_field}>
                              <label className={s.label}>Ship Via</label>
@@ -65,22 +93,22 @@ const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) => {
                          </li>
                          <li className={s.list_field}>
                              <label className={s.label}>Freight</label>
-                             <p className={s.name}>{Freight}</p>
+                             <p className={s.name}>${Freight}</p>
                          </li>
                      </ul>
  
                      <ul>
                       <li className={s.list_field}>
                          <label className={s.label}>Order Date</label>
-                          <p className={s.name}>{OrderDate}</p>
+                          <p className={s.name}>{correctData(OrderDate)}</p>
                       </li>
                       <li className={s.list_field}>
                          <label className={s.label}>Required Date</label>
-                          <p className={s.name}>{RequiredDate}</p>
+                          <p className={s.name}>{correctData(RequiredDate)}</p>
                       </li>
                       <li className={s.list_field}>
                          <label className={s.label}>Shipped Date</label>
-                          <p className={s.name}>{ShippedDate}</p>
+                          <p className={s.name}>{correctData(ShippedDate)}</p>
                       </li>
                       <li className={s.list_field}>
                          <label className={s.label}>Ship City</label>
@@ -102,7 +130,9 @@ const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) => {
                      </ul>
                  </div>
 
-             </div>
+             </div>}
+ 
+
                     <div>
                         <header className={s.bottom_title}>
                             <p>Products in Order</p>
@@ -126,17 +156,17 @@ const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) => {
                     <tr key={ProductId} className={s.tr_wide}>
                         <td><Link className={s.link} to={`/product/${ProductId}`}>{ProductName}</Link></td>
                         <td>{Quantity}</td>
-                        <td>{OrderPrice}</td>
-                        <td>{TotalPrice}</td>
-                        <td>{Discount}</td> 
+                        <td>${OrderPrice}</td>
+                        <td>${Math.round(TotalPrice)}</td>
+                        <td>{Discount}%</td> 
                     </tr>
 
                     <tr key={i} className={s.tr_media}>
                         <td><span className={s.span_media}>Product</span><Link className={s.link} to={`/product/${ProductId}`}>{ProductName}</Link></td>
                         <td><span className={s.span_media}>Quantity</span>{Quantity}</td>
-                        <td><span className={s.span_media}>Order Price</span>{OrderPrice}</td>
-                        <td><span className={s.span_media}>Total Price</span>{TotalPrice}</td>
-                        <td><span className={s.span_media}>Discount</span>{Discount}</td> 
+                        <td><span className={s.span_media}>Order Price</span>${OrderPrice}</td>
+                        <td><span className={s.span_media}>Total Price</span>${TotalPrice}</td>
+                        <td><span className={s.span_media}>Discount</span>{Discount}%</td> 
                     </tr>
 
                     </>
