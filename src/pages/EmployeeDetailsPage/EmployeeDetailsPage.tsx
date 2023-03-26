@@ -6,6 +6,8 @@ import { MyContext } from "../../App";
 import { SqlQuery } from "../../types/itemTypes";
 import { EmployeeItem } from '../../types/itemTypes';
 import { EmployeeItemResponse } from '../../types/itemTypes';
+import Spinner from '../../modules/Loader/Loader';
+import Section from '../../modules/Section/Section';
 
 import * as dataApi from "../../services/dataApi";
 
@@ -15,6 +17,7 @@ interface RouteParams extends Record<string, string> {
 
 const EmployeeDetailsPage: React.FC = () => {
     const [employeeInfo, setEmployeeInfo] = useState<EmployeeItem[]>([]);
+    const [loader, setLoader] = useState<boolean>(false);
     const { id } = useParams<RouteParams>();
 
     const {  handleDashChange } = useContext(MyContext);
@@ -31,13 +34,18 @@ const EmployeeDetailsPage: React.FC = () => {
                         return updatedDash;
                       })
                 }
-    
+                setLoader(false);
             })
         }
+        setLoader(true);
     }, [id]);
 
     return (
-        <EmployeeDetails employeeInfo={employeeInfo} />
+        <Section>
+            {loader && <Spinner /> }
+             <EmployeeDetails employeeInfo={employeeInfo} />
+        </Section>
+       
     )
 };
 

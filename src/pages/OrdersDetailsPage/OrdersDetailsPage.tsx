@@ -7,6 +7,8 @@ import { SqlQuery } from '../../types/itemTypes';
 import { OrderItem } from '../../types/itemTypes';
 import { ProductsInOrder } from '../../types/itemTypes';
 import { OrderItemResponse } from '../../types/itemTypes';
+import Spinner from '../../modules/Loader/Loader';
+import Section from '../../modules/Section/Section';
 
 import * as dataApi from "../../services/dataApi";
 
@@ -17,6 +19,7 @@ interface RouteParams extends Record<string, string> {
 const OrderDetailsPage: React.FC = () => {
     const [orderInfo, setOrderInfo] = useState<OrderItem[]>([]);
     const [productsInfo, setProductsInfo] = useState<ProductsInOrder[]>([]);
+    const [loader, setLoader] = useState<boolean>(false);
     const { id } = useParams<RouteParams>();
 
     const {  handleDashChange } = useContext(MyContext);
@@ -40,13 +43,19 @@ const OrderDetailsPage: React.FC = () => {
                 return updatedDash;
               })
           }
+          setLoader(false);
         })
       }
+      setLoader(true);
     }, [id]);
     
 
     return (
-        <OrderDetails details={orderInfo} productsInfo={productsInfo}/>
+      <Section>
+         {loader && <Spinner /> }
+          <OrderDetails details={orderInfo} productsInfo={productsInfo}/>
+      </Section>
+      
     )
 }
 

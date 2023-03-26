@@ -15,7 +15,7 @@ const SupplierDetails:React.FC<ISupplProps> = ({ details }) => {
 
 
     return (
-        <Section>
+        <>
          <div>
            <header className={s.header}>
              <div className={s.svg_container}> 
@@ -75,7 +75,7 @@ const SupplierDetails:React.FC<ISupplProps> = ({ details }) => {
             </div>
           </div>
           <GoBackButton path={"/suppliers"}/>
-        </Section>
+        </>
     
      
     

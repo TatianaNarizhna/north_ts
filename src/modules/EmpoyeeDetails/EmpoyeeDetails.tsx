@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import Section from "../Section/Section";
 import Ballot from '../../svgFile/symbol-defs.svg';
 import GoBackButton from '../GoBackButton/GoBackButton';
 import { EmployeeItem } from '../../types/itemTypes';
@@ -16,7 +15,7 @@ const EmployeeDetails: React.FC<IEmplProps> = ({ employeeInfo }) => {
     const {FirstName, LastName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, PostalCode, Country, HomePhone, Extension, Notes, ReportsTo, reportsName } = obj || {};
 
     return (
-        <Section>
+        <>
          <div>
            <header className={s.header}>
              <div className={s.svg_container}> 
@@ -96,7 +95,7 @@ const EmployeeDetails: React.FC<IEmplProps> = ({ employeeInfo }) => {
             </div>
           </div>
           <GoBackButton path={"/employees"}/>
-        </Section>
+        </>
     )
 }
 

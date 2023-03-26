@@ -141,9 +141,7 @@ const SearchPage: React.FC = () => {
 						<p>No results</p>
 					}
 				</output>
-
 			</form>
-
             </div>
         </Section>
     )

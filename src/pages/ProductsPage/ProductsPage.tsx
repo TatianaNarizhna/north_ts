@@ -7,6 +7,7 @@ import Section from '../../modules/Section/Section';
 import { SqlQuery } from '../../types/itemTypes';
 import { ProductsRow } from '../../types/pageTypes';
 import { ProductsPageResponse } from '../../types/pageTypes';
+import Spinner from '../../modules/Loader/Loader';
 import { MyContext } from '../../App';
 
 import s from './ProductsPage.module.css'
@@ -15,6 +16,7 @@ const ProductsPage: React.FC = () => {
 const [products, setProducts] = useState<ProductsRow[]>([]);
 const [currentPage, setCurrentPage] = useState<number>(1);
 const [totalPages, setTotalPages] = useState<number>(0);
+const [loader, setLoader] = useState<boolean>(false);
 
 const {  handleDashChange } = useContext(MyContext);
 
@@ -31,9 +33,11 @@ useEffect(() => {
         const updatedDash = [data.sqlQueries, ...prevState, ]
         return updatedDash;
       });
+      setLoader(false);
     }
 
   })
+  setLoader(true);
 }, []);
 
 const handlePageChange = (event: React.ChangeEvent<unknown>, currentPage: number) => {
@@ -43,12 +47,15 @@ const handlePageChange = (event: React.ChangeEvent<unknown>, currentPage: number
         setProducts(data.data)
         setCurrentPage(Number(curPage))
       }
+      setLoader(false);
     })
+    setLoader(true);
 }
 
     return (
 
 <Section>
+    {loader && <Spinner/>}
      <ProductsList products={products}/>
 
       <div className={s.page_footer}>
@@ -69,6 +76,5 @@ const handlePageChange = (event: React.ChangeEvent<unknown>, currentPage: number
 </Section>
     )  
 }
-
 
 export default ProductsPage;

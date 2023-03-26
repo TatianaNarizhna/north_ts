@@ -6,6 +6,8 @@ import { MyContext } from "../../App";
 import { SqlQuery } from "../../types/itemTypes";
 import { CustomerItem } from '../../types/itemTypes';
 import { CustomerItemResponse } from '../../types/itemTypes';
+import Section from '../../modules/Section/Section';
+import Spinner from '../../modules/Loader/Loader';
 
 import * as dataApi from "../../services/dataApi";
 
@@ -15,6 +17,7 @@ interface RouteParams extends Record<string, string> {
 
 const CustomerDetailsPage: React.FC = () => {
     const [customerInfo, setCustomerInfo] = useState<CustomerItem[]>([]);
+    const [loader, setLoader] = useState<boolean>(false);
     const { id } = useParams<RouteParams>();
 
     const {  handleDashChange } = useContext(MyContext);
@@ -31,14 +34,17 @@ const CustomerDetailsPage: React.FC = () => {
                         return updatedDash;
                       }) 
                 }
-    
+                setLoader(false);
             })
         }
-
+        setLoader(true);
     }, [id]);
 
     return (
-        <CustomerDetails details={customerInfo} />
+        <Section>
+             {loader && <Spinner /> }
+             <CustomerDetails details={customerInfo} />
+        </Section>
     )
 
 }

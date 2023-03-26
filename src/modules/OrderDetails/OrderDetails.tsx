@@ -19,7 +19,7 @@ const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) => {
 
  
      return (
-         <Section>
+         <>
           <div>
              <header className={s.header}>
               <div className={s.svg_container}> 
@@ -148,7 +148,7 @@ const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) => {
                      
          </div>
            <GoBackButton path={"/orders"}/>
-         </Section>
+         </>
      )
  }
  

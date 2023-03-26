@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import Section from "../Section/Section";
 import Ballot from '../../svgFile/symbol-defs.svg';
 import GoBackButton from '../GoBackButton/GoBackButton';
 import { CustomerItem } from '../../types/itemTypes';
@@ -16,7 +15,7 @@ const CustomerDetails: React.FC<IDetails> = ({ details}: IDetails) => {
     const {CustomerID, CompanyName, ContactName, ContactTitle, Address, City, PostalCode, Region, Country, Phone, Fax } = obj || {};
  
      return (
-         <Section>
+         <>
           <div>
             <header className={s.header}>
               <div className={s.svg_container}> 
@@ -81,7 +80,7 @@ const CustomerDetails: React.FC<IDetails> = ({ details}: IDetails) => {
              </div>
            </div>
            <GoBackButton path={"/customers"}/>
-         </Section>
+         </>
      
       
      

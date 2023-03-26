@@ -14,7 +14,7 @@ const ProductsDetails: React.FC<IProdProps> = ({ details}) => {
    const {productName, supplier, qtyPerUnit, unitPrice, unitsInStock, unitsInOrder,reorderLevel, discontinued } = obj || {};
 
     return (
-        <Section>
+        <>
          <div>
            <header className={s.header}>
              <div className={s.svg_container}> 
@@ -70,7 +70,7 @@ const ProductsDetails: React.FC<IProdProps> = ({ details}) => {
             </div>
           </div>
           <GoBackButton path={"/products"}/>
-        </Section>
+        </>
     
      
     

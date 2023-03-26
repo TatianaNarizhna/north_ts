@@ -6,7 +6,9 @@ import SupplierDetails from "../../modules/SupplierDetails/SupplierDetails";
 import { SqlQuery } from "../../types/itemTypes";
 import { SupplierItem } from "../../types/itemTypes";
 import { SupplierItemResponse } from '../../types/itemTypes';
+import Spinner from '../../modules/Loader/Loader';
 import { MyContext } from "../../App";
+import Section from '../../modules/Section/Section';
 
 interface RouteParams extends Record<string, string> {
     id: string;
@@ -14,12 +16,14 @@ interface RouteParams extends Record<string, string> {
 
 const SupplierDetailsPage: React.FC = () => {
     const [details, setDetails] = useState<SupplierItem[]>([]);
+    const [loader, setLoader] = useState<boolean>(false);
     const { id } = useParams<RouteParams>();
 
     const {  handleDashChange } = useContext(MyContext);
    
     useEffect(() => {
         if (id !== undefined) {
+            
             dataApi.getSupplierInfo(id).then((data: SupplierItemResponse | undefined) => {
                 if (data) {
                     const [detail] = data.data;
@@ -30,14 +34,19 @@ const SupplierDetailsPage: React.FC = () => {
                         return updatedDash;
                     });
                 }
+                setLoader(false);
             });
         }
+        setLoader(true);
     }, [id])
     
 
     return (
-        
+        <Section>
+        {loader && <Spinner /> }
         <SupplierDetails details = {details}/>
+        </Section>
+       
 
     )
 };

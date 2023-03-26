@@ -8,6 +8,7 @@ import { SqlQuery } from '../../types/itemTypes';
 import { OrderRow } from '../../types/pageTypes';
 import { OrdersPageResponse } from '../../types/pageTypes';
 import { MyContext } from '../../App';
+import Spinner from '../../modules/Loader/Loader';
 
 import s from './OrdersPage.module.css'
 
@@ -15,6 +16,7 @@ const OrdersPage: React.FC = () => {
     const [orders, setOrders] = useState<OrderRow[]>([]);
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [totalPages, setTotalPages] = useState<number>(0);
+    const [loader, setLoader] = useState<boolean>(false);
 
     const {  handleDashChange } = useContext(MyContext);
 
@@ -31,9 +33,11 @@ const OrdersPage: React.FC = () => {
               const updatedDash = [data.sqlQueries, ...prevState,]
               return updatedDash;
             })
+            setLoader(false);
           }
 
         })
+        setLoader(true);
       }, []);
 
     const handlePageChange = (event: React.ChangeEvent<unknown>, currentPage: number) => {
@@ -43,11 +47,14 @@ const OrdersPage: React.FC = () => {
             setOrders(data.data)
             setCurrentPage(Number(curPage))
           }
+          setLoader(false);
         })
+        setLoader(true);
     }
 
     return (
         <Section>
+          {loader && <Spinner />}
             <OrdersList orders={orders}/>
 
              <div className={s.page_footer}>

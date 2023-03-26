@@ -7,6 +7,8 @@ import { ProductItem } from '../../types/itemTypes';
 import { ProductItemResponse } from '../../types/itemTypes';
 import { SqlQuery } from '../../types/itemTypes';
 import { MyContext } from "../../App";
+import Section from '../../modules/Section/Section';
+import Spinner from '../../modules/Loader/Loader';
 
 interface RouteParams extends Record<string, string> {
     id: string;
@@ -14,7 +16,9 @@ interface RouteParams extends Record<string, string> {
 
 const ProductsDetailsPage: React.FC = () => {
     const [details, setDetails] = useState<ProductItem[]>([]);
+    const [loader, setLoader] = useState<boolean>(false);
     const { id } = useParams<RouteParams>();
+
     const {  handleDashChange } = useContext(MyContext);
    
     useEffect(() => {
@@ -29,16 +33,21 @@ const ProductsDetailsPage: React.FC = () => {
                         return updatedDash;
                       })
                 }
+                setLoader(false);
             })
         }
-
+        setLoader(true);
     }, [id])
 
 
 
 
     return (
-        <ProductsDetails details={details}/>
+        <Section>
+            {loader && <Spinner />}
+             <ProductsDetails details={details}/>
+        </Section>
+     
     )
 
 }
