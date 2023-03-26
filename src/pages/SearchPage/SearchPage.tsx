@@ -23,7 +23,7 @@ const SearchPage: React.FC = () => {
         setSelectedValue(e.target.value);
 
         if(searchTextInput) {
-            dataApi.getSearchInformation(e.target.value, searchTextInput).then((res: SearchResponse) => {
+            dataApi.getSearchInformation(e.target.value, searchTextInput).then((res:any) => {
                 setResponseData(res.data)
                 handleDashChange((prevState: SqlQuery[][]): SqlQuery[][] => {
                     const updatedDash = [res.sqlQueries, ...prevState, ]
@@ -40,7 +40,7 @@ const SearchPage: React.FC = () => {
 
     const formSubmit = (e: React.ChangeEvent<unknown>) => {
         e.preventDefault();
-        dataApi.getSearchInformation(selectedValue, searchTextInput).then((res: SearchResponse) => {
+        dataApi.getSearchInformation(selectedValue, searchTextInput).then((res: any) => {
             setResponseData(res.data)
 
             handleDashChange((prevState: SqlQuery[][]): SqlQuery[][] => {
@@ -114,8 +114,51 @@ const SearchPage: React.FC = () => {
 				<h4 className={s.result}>Search results</h4>
 				{loader && <h4>Searching Data</h4>}
 
+                <div>
+                    {responseData === null ? (<p>No results</p>)
+                    : (
+                        <div>
+                            { selectedValue === 'products' ? (
+                                <div>
+                                    {responseData.map((item, index) => (
+                                    <div key={item.id}>                   
+                                      <p className={s.output}>
+                                       <Link className={s.visited} to={`/product/${item.id}`}>{item.name}</Link>
+                                      </p>
+                                      { 'quantPerUnit' in item && (
+                                                                                                            <p className={s.rext_output}>                                       #{index+1}, Quantity Per Unit:                                   {item.quantPerUnit}, Price: {item.price}, Stock: {item.stock} </p>
+                                      )}
+
+                                     </div>
+
+								  ))}
+                                </div>
+                            ) : (
+                                <div>
+                                    {responseData.map((item, index ) => (
+                                    <div key={item.id}>                   
+                                    <p className={s.output}>
+                                      <Link className={s.visited} to={`/customer/${item.id}`}>{item.name}</Link>
+                                    </p>
+                                    {'contact' in item && (
+                                                                            <p className={s.rext_output}>#{index+1}, Contact:{item.contact}, Title: {item.title}, Phone: {item.phone} </p>
+                                    )}
+
+                                </div>
+								  ))}
+                                </div>
+                            )
+ 
+                            }
+                        </div>
+                    )
+                    }
+
+				</div>
+
+
              
-            <output name="result" htmlFor="searchInput">
+            {/* <output name="result" htmlFor="searchInput">
 					{responseData ? (
 						<>
 							{fetchSearchResult(responseData)
@@ -140,7 +183,7 @@ const SearchPage: React.FC = () => {
 					) : 
 						<p>No results</p>
 					}
-				</output>
+				</output> */}
 			</form>
             </div>
         </Section>
