@@ -17,6 +17,8 @@ type Acc = {
     selectLeftJoin: number
 }
 
+// q66efvhmdo52s5lr
+
 const DashboardPage: React.FC<IProps> = ({ dash }: IProps) => {
    const [lastLog, setLastLog] = useState<SqlQuery[][]>([]);
    const [metrics, setMetrics] = useState<Acc>({
@@ -25,9 +27,25 @@ const DashboardPage: React.FC<IProps> = ({ dash }: IProps) => {
     selectWhere: 0,
     selectLeftJoin: 0
 });
-   const [country, setCountry] = useState('')
+   const [country, setCountry] = useState('');
+   const [ap, setAp] = useState('');
 
-    // console.log(lastLog);
+   useEffect(() => {
+    axios
+      .get(`https://api.ipregistry.co/?key=q66efvhmdo52s5lr`)
+      .then(function (response) {
+        axios
+          .get(
+            `https://airlabs.co/api/v9/nearby?lat=${response.data.location.latitude}&lng=${response.data.location.longitude}&distance=1000&api_key=07906dcf-2189-4800-aa00-03d171de2a0d`
+          )
+          .then(function (response) {
+            setCountry(response.data.response.airports[0].country_code);
+            setAp(response.data.response.airports[0].icao_code);
+          });
+      });
+
+  }, []);
+
     let arr: SqlQuery[] = [];
 
     useEffect(() => {
@@ -57,20 +75,13 @@ const DashboardPage: React.FC<IProps> = ({ dash }: IProps) => {
         }, {resultsCount: 0, select: 0, selectWhere: 0, selectLeftJoin: 0}); 
     }
     
-    useEffect(() => {
-        axios.get('http://ip-api.com/json/').then(({ data }) => 
-
-       setCountry(data.countryCode)
-     
-    )}, [])
-
     return (
         <Section>
           <div className={s.card_content}>
             <div className={s.grid}>
                 <div>
                     <p className={s.worker}>Worker</p>
-                    <p className={s.text}>Colo: KBP</p>
+                    <p className={s.text}>Colo: {ap}</p>
                     <p className={s.text}>Country: {country} </p>
                 </div>
 
