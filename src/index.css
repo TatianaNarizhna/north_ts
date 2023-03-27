@@ -106,6 +106,10 @@ tr:hover {
   background-color: var(--title-white-color);
 }
 
+tbody tr:nth-child(even) {
+  background-color: var(--title-white-color);
+}
+
 /* Open Sans */
 
 
