@@ -30,13 +30,28 @@
   color: var(--link-color-blue);
 }
 
-tbody tr:nth-child(even) {
+/* tbody tr:nth-child(even) {
   background-color: var(--title-white-color);
+} */
+
+
+ /* .tr_wide {
+  background-color: #e495e4;
+} */
+
+ /* tbody tr:nth-child(even).tr_wide {
+  background-color: #e495e4;
+} */
+
+tr:hover {
+  background-color: #fff;
 }
+
 
 .tr_media {
   display: none;
 }
+
 
 
 @media screen and (max-width: 1024px) {

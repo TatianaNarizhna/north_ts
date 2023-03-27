@@ -102,5 +102,11 @@ td {
   }
 }
 
+tr:hover {
+  background-color: var(--title-white-color);
+}
+
 /* Open Sans */
+
+
 

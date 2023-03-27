@@ -37,7 +37,7 @@ const ProductsList:React.FC<IProdProps> = ({ products }) => {
                     <tr key={id} className={s.tr_wide}>
                         <td><Link className={s.link} to={`/product/${id}`}>{name}</Link></td>
                         <td>{qt}</td>
-                        <td>{price}</td>
+                        <td>${price}</td>
                         <td>{stock}</td>
                         <td>{orders}</td>
                     </tr>
@@ -51,7 +51,7 @@ const ProductsList:React.FC<IProdProps> = ({ products }) => {
                           {qt}</td>
                         <td>
                           <span className={s.span_media}>Price</span>
-                          {price}</td>
+                          ${price}</td>
                         <td>
                           <span className={s.span_media}>Stock</span>
                           {stock}</td>
