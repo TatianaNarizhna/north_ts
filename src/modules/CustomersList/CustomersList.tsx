@@ -12,7 +12,7 @@ interface ICustomerProps {
 const CustomersList: React.FC<ICustomerProps> = ({ customers }) => {
 
       return (
-            <div>
+            <div className={s.border}>
               <header className={s.header}>
                 <p className={s.card_header}>Customers</p>
                 <div className={s.svg_container}>

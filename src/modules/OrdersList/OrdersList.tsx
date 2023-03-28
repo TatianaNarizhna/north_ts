@@ -19,7 +19,7 @@ const OrdersList: React.FC<IOrdersProps> = ({ orders }) => {
   }
 
     return (
-          <div>
+          <div className={s.border}>
             <header className={s.header}>
               <p className={s.card_header}>Orders</p>
               <div className={s.svg_container}>

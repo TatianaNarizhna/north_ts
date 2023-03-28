@@ -39,14 +39,16 @@ const EmployeesPage: React.FC = () => {
 
 
     return <Section>
-       {loader && <Spinner />}
-             <EmployeesList employees={employees}/>
+       {loader && <p>Loading employees...</p>}
+       {!loader && (<>        
+       <EmployeesList employees={employees}/>
 
-              <div className={s.page_footer}>
-               <p className={s.footer_info}>
-                Page {Number(currentPage)} of {totalPages}
-              </p>
-             </div>
+<div className={s.page_footer}>
+ <p className={s.footer_info}>
+  Page {Number(currentPage)} of {totalPages}
+</p>
+</div></>)}
+
     </Section>
 }
 

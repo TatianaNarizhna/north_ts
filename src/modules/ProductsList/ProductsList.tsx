@@ -10,7 +10,7 @@ interface IProdProps {
 
 const ProductsList:React.FC<IProdProps> = ({ products }) => {
     return (
-          <div>
+          <div className={s.border}>
             <header className={s.header}>
               <p className={s.card_header}>Products</p>
               <div className={s.svg_container}>

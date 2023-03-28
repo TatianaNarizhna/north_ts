@@ -44,8 +44,8 @@ const ProductsDetailsPage: React.FC = () => {
 
     return (
         <Section>
-            {loader && <Spinner />}
-             <ProductsDetails details={details}/>
+            {loader && <p>No such product...</p>}
+             {!loader && <ProductsDetails details={details}/>}
         </Section>
      
     )

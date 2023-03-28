@@ -11,7 +11,7 @@ interface IEmplProps {
 
 const EmployeesList: React.FC<IEmplProps> = ({ employees }) => {
     return (
-        <div>
+        <div className={s.border}>
           <header className={s.header}>
             <p className={s.card_header}>Employees</p>
             <div className={s.svg_container}>

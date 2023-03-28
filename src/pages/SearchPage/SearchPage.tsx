@@ -29,7 +29,6 @@ const SearchPage: React.FC = () => {
                     const updatedDash = [res.sqlQueries, ...prevState, ]
                     return updatedDash;
                   });
-
             })
         }
       };

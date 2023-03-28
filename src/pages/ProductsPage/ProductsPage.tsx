@@ -55,24 +55,29 @@ const handlePageChange = (event: React.ChangeEvent<unknown>, currentPage: number
     return (
 
 <Section>
-    {loader && <Spinner/>}
-     <ProductsList products={products}/>
+    {loader && <p>Loading products...</p>}
+    {!loader && (
+      <>
+           <ProductsList products={products}/>
 
-      <div className={s.page_footer}>
-       <Stack spacing={2}>
-       <Pagination count={totalPages} variant="outlined" shape="rounded" 
-        page={Number(currentPage)}
-        onChange={handlePageChange}
-        hideNextButton
-        hidePrevButton
-        size="large"
-       />
+           <div className={s.page_footer}>
+           <Stack spacing={2}>
+            <Pagination count={totalPages} variant="outlined" shape="rounded" 
+           page={Number(currentPage)}
+           onChange={handlePageChange}
+            hideNextButton
+            hidePrevButton
+           size="large"
+          />
 
-      </Stack>
-     <p className={s.footer_info}>
-       Page {Number(currentPage)} of {totalPages}
-     </p>
-    </div>
+         </Stack>
+          <p className={s.footer_info}>
+          Page {Number(currentPage)} of {totalPages}
+        </p>
+</div>
+      </>
+    )}
+
 </Section>
     )  
 }

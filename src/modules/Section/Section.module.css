@@ -4,9 +4,9 @@
   padding-right: 25px;
 }
 
-.section {
+/* .section {
   border: 1px solid var(--border-gray-color);
-}
+} */
 
 @media screen and (max-width: 1024px) {
   .main_content {

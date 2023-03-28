@@ -58,28 +58,30 @@ const handlePageChange = ( event: React.ChangeEvent<unknown>, currentPage: numbe
 
     return (
       
-      
       <Section>
-       {loader && <Spinner />}
-         <SuppliersList suppliers={suppliers} />
+       {loader && <p>Loading suppliers...</p>}
+       {!loader && (
+        <>
+                 <SuppliersList suppliers={suppliers} />
 
-         <div className={s.page_footer}>
-          <Stack spacing={2}>
-            <Pagination count={totalPages} variant="outlined" shape="rounded" 
-            page={Number(currentPage)}
-            onChange={handlePageChange}
-            hideNextButton
-            hidePrevButton
-            size="large"
-            />
-          
-           </Stack>
-              <p className={s.footer_info}>
-                Page {Number(currentPage)} of {totalPages}
-              </p>
-         </div>
+                 <div className={s.page_footer}>
+                  <Stack spacing={2}>
+                    <Pagination count={totalPages} variant="outlined" shape="rounded" 
+                    page={Number(currentPage)}
+                    onChange={handlePageChange}
+                    hideNextButton
+                    hidePrevButton
+                    size="large"
+                    />
+                  
+                   </Stack>
+                      <p className={s.footer_info}>
+                        Page {Number(currentPage)} of {totalPages}
+                      </p>
+                 </div>
+                 </>
+       )}
         </Section>
-       
     )
 }
 

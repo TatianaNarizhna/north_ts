@@ -51,24 +51,27 @@ const CustomersPage: React.FC = () => {
 
     return (
         <Section>
-          {loader && <Spinner />}
+          {loader && <p>Loading customers...</p>}
+          {!loader && (<>
             <CustomersList customers={customers}/>
 
-             <div className={s.page_footer}>
-             <Stack spacing={2}>
-               <Pagination count={totalPages} variant="outlined" shape="rounded" 
-                page={Number(currentPage)}
-                onChange={handlePageChange}
-                hideNextButton
-                hidePrevButton
-                size="large"
-              />
+       <div className={s.page_footer}>
+<Stack spacing={2}>
+  <Pagination count={totalPages} variant="outlined" shape="rounded" 
+   page={Number(currentPage)}
+   onChange={handlePageChange}
+   hideNextButton
+   hidePrevButton
+   size="large"
+ />
 
-            </Stack>
-              <p className={s.footer_info}>
-                Page {Number(currentPage)} of {totalPages}
-              </p>
-             </div>
+</Stack>
+ <p className={s.footer_info}>
+   Page {Number(currentPage)} of {totalPages}
+ </p>
+</div>
+          </>)}
+
 
         </Section>
     )

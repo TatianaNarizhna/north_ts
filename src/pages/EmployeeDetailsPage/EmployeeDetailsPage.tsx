@@ -42,8 +42,8 @@ const EmployeeDetailsPage: React.FC = () => {
 
     return (
         <Section>
-            {loader && <Spinner /> }
-             <EmployeeDetails employeeInfo={employeeInfo} />
+            {loader && <p>No such employee...</p> }
+             {!loader && <EmployeeDetails employeeInfo={employeeInfo} />}
         </Section>
        
     )

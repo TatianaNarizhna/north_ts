@@ -42,8 +42,9 @@ const CustomerDetailsPage: React.FC = () => {
 
     return (
         <Section>
-             {loader && <Spinner /> }
-             <CustomerDetails details={customerInfo} />
+             {loader && <p>No such customer...</p> }
+             {!loader && <CustomerDetails details={customerInfo} />}
+             
         </Section>
     )
 
