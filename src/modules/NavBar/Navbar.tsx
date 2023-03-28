@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { NavLink } from "react-router-dom";
 import Icons from '../../svgFile/symbol-defs.svg';
 import Menu from '../../svgFile/symbol-defs.svg';
@@ -28,15 +28,15 @@ return (
      <p className={s.block_title}>GENERAL</p>
      <NavLink to="/" className={s.link}>
         <span className={s.svg_Style}>
-             <svg width={25} height={25} >
+             <svg width={23} height={23} >
                   <use xlinkHref={`${Icons}#icon-home`} ></use>
               </svg>
         </span>
         <span className={s.nav_page}>Home</span></NavLink>
     <NavLink to="/dash" className={s.link}>
         <span className={s.svg_Style}>
-              <svg width={20} height={20} >
-                  <use xlinkHref={`${Icons}#icon-display`} ></use>
+              <svg width={23} height={23} >
+                  <use xlinkHref={`${Icons}#icon-display_settings_FILL0_wght400_GRAD0_opsz48`} ></use>
               </svg>
         </span>
         <span className={s.nav_page}>Dashboard</span>
@@ -44,7 +44,7 @@ return (
     <p className={s.block_title}>BACKOFFICE</p>
     <NavLink to="/suppliers" className={s.link}>
         <span className={s.svg_Style}>
-            <svg width={20} height={20} >
+            <svg width={24} height={24} >
                   <use xlinkHref={`${Icons}#icon-inventory`} ></use>
             </svg>
         </span>
@@ -52,23 +52,23 @@ return (
     </NavLink>
     <NavLink to="/products" className={s.link}>
         <span className={s.svg_Style}>
-             <svg width={20} height={20} >
-                  <use xlinkHref={`${Icons}#icon-cart-arrow-down`} ></use>
+             <svg width={24} height={24} >
+                  <use xlinkHref={`${Icons}#icon-production_quantity_limits_FILL0_wght400_GRAD0_opsz48`} ></use>
              </svg>
         </span>
         <span className={s.nav_page}>Products</span>
     </NavLink>
     <NavLink to="/orders" className={s.link}>
         <span className={s.svg_Style}>
-             <svg width={20} height={20} >
-                  <use xlinkHref={`${Icons}#icon-shopping-cart`} ></use>
+             <svg width={25} height={25} >
+                  <use xlinkHref={`${Icons}#icon-shopping_cart_black_24dp`}></use>
              </svg>
         </span>
         <span className={s.nav_page}>Orders</span>
     </NavLink>
     <NavLink to="/employees" className={s.link}>
         <span className={s.svg_Style}>
-             <svg width={20} height={20} >
+             <svg width={23} height={23} >
                   <use xlinkHref={`${Icons}#icon-badge`} ></use>
              </svg>
         </span>
@@ -76,15 +76,16 @@ return (
     </NavLink>
     <NavLink to="/customers" className={s.link}>
         <span className={s.svg_Style}>
-             <svg width={20} height={20} >
-                  <use xlinkHref={`${Icons}#icon-users`} ></use>
+             <svg width={25} height={25} >
+                  <use xlinkHref={`${Icons}#icon-group_black_24dp`}  >
+                  </use> 
              </svg>
         </span>
         <span>Customers</span>
     </NavLink>
     <NavLink to="/search" className={s.link}>
          <span className={s.svg_Style}>
-             <svg width={20} height={20} >
+             <svg width={18} height={18} >
                   <use xlinkHref={`${Icons}#icon-search`} ></use>
              </svg>
          </span>

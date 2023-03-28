@@ -1,14 +1,17 @@
 .navPanel {
   display: flex;
   justify-content: space-between;
-  position: static;
+  position: fixed;
+  left: 15rem;
+  right: 0;
   /* justify-content: space-between; */
   align-items: center;
   top: 0;
   height: 3.5rem;
-  padding-left: 15rem;
+  /* padding-left: 15rem; */
   background-color: var(--title-white-color);
   border-bottom: 1px solid var(--border-gray-color);
+  /* z-index: 99999; */
 }
 
 .time {
@@ -37,6 +40,7 @@
   display: flex;
   align-items: center;
   padding: 0.5rem 0.75rem;
+  color: black;
 }
 
 .navBar_icons {
@@ -57,6 +61,8 @@
 .navBar_items_media {
   display: none;
  }
+
+
 
 @media screen and (max-width: 1024px) {
   .navBar_icons_media {

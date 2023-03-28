@@ -1,13 +1,15 @@
 .main_section {
-  padding-top: 25px;
+  padding-top: 5rem;
   padding-left: 270px;
   background-color: var(--body-background-color);
-  height: 100vh;
-  overflow: auto;
+  /* height: 100vh; */
+  /* overflow: auto; */
+  overflow: hidden;
 }
 
+
 .card_content {
-  padding: 1.5rem;
+  padding: 1.3rem;
   font-family: sans-serif;
 }
 
@@ -34,7 +36,7 @@
 
 .text_base {
   padding-top: 1rem;
-  font-size: 0.97rem;
+  font-size: 0.96rem;
   line-height: 1.5rem;
 }
 
@@ -44,6 +46,6 @@
 
 @media screen and (max-width: 1024px) {
   .main_section {
-    padding: 25px;
+    padding: 85px 25px 25px 25px;
   }
 }
