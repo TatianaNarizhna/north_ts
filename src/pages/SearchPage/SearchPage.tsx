@@ -67,7 +67,6 @@ const SearchPage: React.FC = () => {
                         className={s.input}
 						type="search"
 						name="search"
-						id="searchInput"
 						placeholder="Enter keyword..."
 						value={searchTextInput}
 						onChange={handleInput}
@@ -126,7 +125,7 @@ const SearchPage: React.FC = () => {
                                        <Link className={s.visited} to={`/product/${item.id}`}>{item.name}</Link>
                                       </p>
                                       { 'quantPerUnit' in item && (
-                                                                                                            <p className={s.rext_output}>                                       #{index+1}, Quantity Per Unit:                                   {item.quantPerUnit}, Price: {item.price}, Stock: {item.stock} </p>
+                                         <p className={s.rext_output}>#{index+1}, Quantity Per Unit:{item.quantPerUnit}, Price: {item.price}, Stock: {item.stock} </p>
                                       )}
 
                                      </div>
@@ -141,7 +140,7 @@ const SearchPage: React.FC = () => {
                                       <Link className={s.visited} to={`/customer/${item.id}`}>{item.name}</Link>
                                     </p>
                                     {'contact' in item && (
-                                                                            <p className={s.rext_output}>#{index+1}, Contact:{item.contact}, Title: {item.title}, Phone: {item.phone} </p>
+                                     <p className={s.rext_output}>#{index+1}, Contact:{item.contact}, Title: {item.title}, Phone: {item.phone} </p>
                                     )}
 
                                 </div>

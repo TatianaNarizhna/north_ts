@@ -34,7 +34,7 @@ const ProductsList:React.FC<IProdProps> = ({ products }) => {
          
                 {products.map(({id, name, qt, price, stock, orders}, i) => (
                   <>
-                    <tr key={id} className={s.tr_wide}>
+                    <tr key={id} className={s.tr_wide} style={{backgroundColor: i % 2 === 0 ? 'transparent' : 'var(--title-white-color)'}} >
                         <td><Link className={s.link} to={`/product/${id}`}>{name}</Link></td>
                         <td>{qt}</td>
                         <td>${price}</td>
@@ -57,7 +57,6 @@ const ProductsList:React.FC<IProdProps> = ({ products }) => {
                           {stock}</td>
                         <td>
                           <span className={s.span_media}>Orders</span>
-                        Orders
                           {orders}</td>
                     </tr>
                   </>

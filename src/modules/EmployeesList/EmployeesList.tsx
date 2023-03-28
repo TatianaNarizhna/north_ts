@@ -35,7 +35,7 @@ const EmployeesList: React.FC<IEmplProps> = ({ employees }) => {
           <tbody>
               {employees.map(({id, name, title, city, phone, country, avatarLink}, i) => (
                 <>
-                  <tr key={id} className={s.tr_wide}>
+                  <tr key={id} className={s.tr_wide} style={{backgroundColor: i % 2 === 0 ? 'transparent' : 'var(--title-white-color)'}}>
                        <td>
                          <div className={s.avatar_img}>
                              <img src={avatarLink} alt="Employees letters" className={s.radius}/></div>

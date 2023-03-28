@@ -43,10 +43,10 @@ const OrdersList: React.FC<IOrdersProps> = ({ orders }) => {
                 </tr>
             </thead>
             <tbody>
-                {orders.map(({OrderId, TotalProductsPrice, TotalProducts, TotalProductsItems, Shipped, ShipName, City, Country}) => 
+                {orders.map(({OrderId, TotalProductsPrice, TotalProducts, TotalProductsItems, Shipped, ShipName, City, Country}, i) => 
                   (
                     <>
-                    <tr key={OrderId} className={s.tr_wide}>
+                    <tr key={OrderId} className={s.tr_wide} style={{backgroundColor: i % 2 === 0 ? 'transparent' : 'var(--title-white-color)'}}>
                     <td><Link className={s.link} to={`/order/${OrderId}`}>{OrderId}</Link></td>
                     <td>{TotalProductsPrice}</td>
                     <td>{TotalProducts}</td>

@@ -36,7 +36,7 @@ const SuppliersList:React.FC<ISupplProps> = ({suppliers}) => {
             <tbody>
                 {suppliers.map(({id, avatarLink, companyName, name, title, city, country}, i) => (
                   <>
-                    <tr key={id} className={s.tr_wide}>
+                    <tr key={id} className={s.tr_wide} style={{backgroundColor: i % 2 === 0 ? 'transparent' : 'var(--title-white-color)'}}>
                         <td>
                             <div className={s.avatar_img}>
                                 <img src={avatarLink} alt="Contact letters" className={s.radius}/></div>

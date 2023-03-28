@@ -37,7 +37,7 @@ const CustomersList: React.FC<ICustomerProps> = ({ customers }) => {
                   {customers.map(({id, company, name, title, city, country, avatarLink }, i) => 
                     (
                    <>
-                     <tr key={id} className={s.tr_wide}>
+                     <tr key={id} className={s.tr_wide} style={{backgroundColor: i % 2 === 0 ? 'transparent' : 'var(--title-white-color)'}}>
                        <td>
                          <div className={s.avatar_img}>
                              <img src={avatarLink} alt="Customers letters" className={s.radius}/></div>

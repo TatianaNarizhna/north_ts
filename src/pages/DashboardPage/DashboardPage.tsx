@@ -65,18 +65,15 @@ const DashboardPage: React.FC<IProps> = ({ dash }: IProps) => {
     const logMetrics = (array: SqlQuery[]) => {
         return array.reduce((acc: Acc, obj: SqlQuery) => {
            acc.resultsCount += obj.resultsCount;
-           let countSelect = obj.sqlType === "select" ? acc.select + 1 : 0;
-           let countWhere = obj.sqlType === "select where" ? acc.select + 1 : 0;
-           let countLeftJoin = obj.sqlType === "select where left join" ? acc.select + 1 : 0;
-           acc.select += countSelect;
-           acc.selectWhere += countWhere;
-           acc.selectLeftJoin += countLeftJoin;
+           acc.select += obj.sqlType === "select" ? 1 : 0;
+           acc.selectWhere += obj.sqlType === "select where" ? 1 : 0;
+           acc.selectLeftJoin += obj.sqlType === "select where left join" ? 1 : 0;
         return acc;
         }, {resultsCount: 0, select: 0, selectWhere: 0, selectLeftJoin: 0}); 
     }
     
     return (
-        <Section>
+        <Section >
           <div className={s.card_content}>
             <div className={s.grid}>
                 <div>

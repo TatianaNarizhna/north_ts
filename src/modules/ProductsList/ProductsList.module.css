@@ -30,9 +30,15 @@
   color: var(--link-color-blue);
 }
 
-tbody tr:nth-child(3n) {
-  background-color: var(--title-white-color);
+.tr_wide:hover {
+  background-color: blue;
 }
+
+
+
+/* tbody tr:nth-child(3n) {
+  background-color: var(--title-white-color);
+} */
 
 
  /* .tr_wide {
@@ -47,16 +53,14 @@ tbody tr:nth-child(3n) {
   background-color: #e495e4;
 } */
 
-tr:hover {
+/* tr:hover {
   background-color: #fff;
-}
+} */
 
 
 .tr_media {
   display: none;
 }
-
-
 
 @media screen and (max-width: 1024px) {
   .tr_wide {

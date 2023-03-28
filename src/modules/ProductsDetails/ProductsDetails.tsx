@@ -42,7 +42,7 @@ const ProductsDetails: React.FC<IProdProps> = ({ details}) => {
                         </li>
                         <li className={s.list_field}>
                             <label className={s.label}>Unit Price</label>
-                            <p className={s.name}>{unitPrice}</p>
+                            <p className={s.name}>${unitPrice}</p>
                         </li>
                     </ul>
 

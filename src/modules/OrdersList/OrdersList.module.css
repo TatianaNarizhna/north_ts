@@ -30,9 +30,9 @@
   color: var(--link-color-blue);
 }
 
-tbody tr:nth-child(even) {
+/* tbody tr:nth-child(even) {
   background-color: var(--title-white-color);
-}
+} */
 
 .tr_media {
   display: none;

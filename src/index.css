@@ -58,6 +58,7 @@ html {
   --tw-ring-shadow: rgb(12, 12, 12);
   --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --radio-btn-color:  rgb(59, 130, 246);
 }
 
 button.css-kvsszq-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
@@ -102,13 +103,14 @@ td {
   }
 }
 
-tr:hover {
-  background-color: var(--title-white-color);
-}
+/* tr:hover {
+  background-color: var(--navbar-active-color);
+} */
 
-tbody tr:nth-child(even) {
-  background-color: var(--title-white-color);
-}
+/* tbody tr:nth-child(2n) {
+  background-color: red;
+} */
+
 
 /* Open Sans */
 
