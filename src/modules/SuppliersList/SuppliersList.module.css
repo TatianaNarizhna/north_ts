@@ -58,6 +58,11 @@
     width: 6rem;
   }
 
+
+  .link {
+    text-align: right;
+  }
+
   .span_media {
     font-weight: 600;
   }

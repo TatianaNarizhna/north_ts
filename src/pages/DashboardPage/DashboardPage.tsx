@@ -57,7 +57,6 @@ const DashboardPage: React.FC<IProps> = ({ dash }: IProps) => {
         arr.push(el)
     })
 
-    console.log(arr)
     useEffect(() => {
         const sqlMetricsObj =  logMetrics(arr);
         setMetrics(sqlMetricsObj)

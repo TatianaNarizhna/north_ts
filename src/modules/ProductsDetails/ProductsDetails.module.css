@@ -43,3 +43,19 @@
 .name {
   font-size: 15px;
 }
+
+.link {
+  color: var(--link-color-blue);
+}
+
+.link:visited {
+  color: var(--link-color-blue);
+}
+
+
+@media screen and (max-width: 1024px) {
+
+  .link {
+    color: var(--link-color-blue);
+  }
+}

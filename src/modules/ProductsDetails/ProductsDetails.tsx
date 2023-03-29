@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import Section from "../Section/Section";
 import Ballot from '../../svgFile/symbol-defs.svg';
 import GoBackButton from '../GoBackButton/GoBackButton';
@@ -11,7 +12,7 @@ interface IProdProps {
 
 const ProductsDetails: React.FC<IProdProps> = ({ details}) => {
     let obj = details[0];
-   const {productName, supplier, qtyPerUnit, unitPrice, unitsInStock, unitsInOrder,reorderLevel, discontinued } = obj || {};
+   const {productName, supplier, qtyPerUnit, unitPrice, unitsInStock, unitsInOrder,reorderLevel, discontinued, supplierId } = obj || {};
 
     return (
         <>
@@ -34,7 +35,9 @@ const ProductsDetails: React.FC<IProdProps> = ({ details}) => {
                         </li>
                         <li className={s.list_field}>
                             <label className={s.label}>Supplier</label>
-                            <p className={s.name}>{supplier}</p>
+                            <p className={s.name}>
+                                <Link className={s.link}  to={`/supplier/${supplierId}`} >{supplier}</Link>
+                               </p>
                         </li>
                         <li className={s.list_field}>
                             <label className={s.label}>Quantity Per Unit</label>

@@ -19,25 +19,6 @@ const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) =>
  let obj = details[0]
     const {CustomerId, ShipName, TotalProducts, TotalProductsItems, TotalProductsPrice, TotalProductsDiscount, CompanyShipper, Freight, OrderDate, RequiredDate, ShippedDate, ShipCity, ShipRegion, PostalCode, ShipCountry } = obj || {};
 
-    // const correctData = (shipped: string | undefined | null) => {
-    //     if(typeof shipped !== 'undefined' && shipped !== null) {
-    //         let shippedCorrection = shipped.split(" ");
-    //         let firstElement = shippedCorrection[0];
-    //         return firstElement;
-    //     }
-    //   }
-
-    // const correctData = (shipped: string | undefined | null) => {
-    //     if(typeof shipped !== 'undefined' && shipped !== null) {
-    //         let shippedCorrection = shipped.split(" ");
-    //         let firstElement = shippedCorrection[0];
-    //         return firstElement;
-    //     }
-    //     return "";
-    // }
-
-    //   let shippedCorrection = OrderDate.split(" ");
-    //   console.log(shippedCorrection[0])
 
     const correctData = (shipped: string) => {
         let shippedCorrection = shipped.split(" ");
