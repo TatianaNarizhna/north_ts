@@ -30,21 +30,6 @@ const DashboardPage: React.FC<IProps> = ({ dash }: IProps) => {
    const [country, setCountry] = useState('');
    const [ap, setAp] = useState('');
 
-//    useEffect(() => {
-//     axios
-//       .get(`https://api.ipregistry.co/?key=q66efvhmdo52s5lr`)
-//       .then(function (response) {
-//         axios
-//           .get(
-//             `https://airlabs.co/api/v9/nearby?lat=${response.data.location.latitude}&lng=${response.data.location.longitude}&distance=1000&api_key=39c7b782-e507-473a-af2f-0aba7de6c3a1`
-//           )
-//           .then(function (response) {
-//             setCountry(response.data.response.airports[0].country_code);
-//             setAp(response.data.response.airports[0].icao_code);
-//           });
-//       });
-
-//   }, []);
 
 useEffect(() => {
    const fetchGeo = async () => {
