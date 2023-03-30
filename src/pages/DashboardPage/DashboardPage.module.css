@@ -50,3 +50,12 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
+
+
+@media screen and (max-width: 1024px) {
+  .log_block {
+    text-align: justify;
+  }
+
+}
+

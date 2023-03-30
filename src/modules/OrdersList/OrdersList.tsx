@@ -61,11 +61,11 @@ const OrdersList: React.FC<IOrdersProps> = ({ orders }) => {
                     <td className={s.border}>
                       <span className={s.span_media}>Id</span>
                       <Link className={s.link} to={`/order/${OrderId}`}>{OrderId}</Link></td>
-                    <td><span className={s.span_media}>Total Price</span>{TotalProductsPrice}</td>
+                    <td><span className={s.span_media}>Price</span>${TotalProductsPrice.toFixed(2)}</td>
                     <td><span className={s.span_media}>Products</span>{TotalProducts}</td>
                     <td><span className={s.span_media}>Quantity</span>{TotalProductsItems}</td>
-                    <td><span className={s.span_media}>Shipped</span>{ correctData(Shipped)}</td>
-                    <td><span className={s.span_media}>Ship Name</span>{ShipName}</td>
+                    <td><span className={s.span_media}>Date</span>{ correctData(Shipped)}</td>
+                    <td><span className={s.span_media}>Name</span>{ShipName}</td>
                     <td><span className={s.span_media}>City</span>{City}</td>
                     <td><span className={s.span_media}>Country</span>{Country}</td>
                    </tr>

@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import React from 'react';
 import { Link } from "react-router-dom"
 import Redo from "../../svgFile/symbol-defs.svg"
@@ -48,8 +49,8 @@ const SuppliersList:React.FC<ISupplProps> = ({suppliers}) => {
                         <td>{country}</td>
                     </tr>
 
-                    <tr key={avatarLink} className={s.tr_media}>
-                         <td>
+                    <tr key={i} className={s.tr_media}>
+                         <td className={s.media_border}>
                              <div className={s.avatar_img}>
                                  <img src={avatarLink} alt="Contact letters" className={s.radius}/></div>
                            </td>
@@ -72,6 +73,3 @@ const SuppliersList:React.FC<ISupplProps> = ({suppliers}) => {
 }
 
 export default SuppliersList
-
-{/* <span className="text-weight">Contact</span>
-{user.contactName} */}

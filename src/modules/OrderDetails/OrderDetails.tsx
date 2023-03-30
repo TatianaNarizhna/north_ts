@@ -24,9 +24,8 @@ const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) =>
         let shippedCorrection = shipped.split(" ");
         let firstElement = shippedCorrection[0];
         return firstElement;
-    
       }
- 
+
      return (
          <>
           <div>
@@ -62,11 +61,11 @@ const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) =>
                          </li>
                          <li className={s.list_field}>
                              <label className={s.label}>Total Price</label>
-                             <p className={s.name}>${TotalProductsPrice}</p>
+                             <p className={s.name}>${TotalProductsPrice.toFixed(2)}</p>
                          </li>
                          <li className={s.list_field}>
                              <label className={s.label}>Total Discount</label>
-                             <p className={s.name}>${TotalProductsDiscount}</p>
+                             <p className={s.name}>${TotalProductsDiscount.toFixed(2)}</p>
                          </li>
                          <li className={s.list_field}>
                              <label className={s.label}>Ship Via</label>
@@ -112,8 +111,6 @@ const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) =>
                  </div>
 
              </div>}
- 
-
                     <div>
                         <header className={s.bottom_title}>
                             <p>Products in Order</p>
@@ -145,8 +142,8 @@ const OrderDetails: React.FC<IOrderProps> = ({ productsInfo, details }) =>
                     <tr key={i} className={s.tr_media}>
                         <td><span className={s.span_media}>Product</span><Link className={s.link} to={`/product/${ProductId}`}>{ProductName}</Link></td>
                         <td><span className={s.span_media}>Quantity</span>{Quantity}</td>
-                        <td><span className={s.span_media}>Order Price</span>${OrderPrice}</td>
-                        <td><span className={s.span_media}>Total Price</span>${TotalPrice}</td>
+                        <td><span className={s.span_media}>Order Price</span>${OrderPrice.toFixed(2)}</td>
+                        <td><span className={s.span_media}>Total Price</span>${TotalPrice.toFixed(2)}</td>
                         <td><span className={s.span_media}>Discount</span>{Discount}%</td> 
                     </tr>
 

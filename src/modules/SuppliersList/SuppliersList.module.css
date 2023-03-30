@@ -72,6 +72,10 @@
     font-weight: 600;
   }
 
+  .media_border {
+    border-bottom: none;
+  }
+
   /* td:not(:first-child) {
     border-bottom: 1px solid var(--border-gray-color);
   } */

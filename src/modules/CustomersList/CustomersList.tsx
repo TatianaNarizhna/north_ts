@@ -50,7 +50,7 @@ const CustomersList: React.FC<ICustomerProps> = ({ customers }) => {
                      </tr>
 
                      <tr key={i} className={s.tr_media}>
-                       <td>
+                       <td className={s.media_border}>
                          <div className={s.avatar_img}>
                              <img src={avatarLink} alt="Customers letters" className={s.radius}/></div>
                        </td>

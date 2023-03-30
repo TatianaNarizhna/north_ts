@@ -49,15 +49,18 @@ const DashboardPage: React.FC<IProps> = ({ dash }: IProps) => {
 useEffect(() => {
    const fetchGeo = async () => {
     const { data} = await axios.get('https://ip-geolocation.whoisxmlapi.com/api/v1?apiKey=at_fHHzq16vcnrB02eEuUi3CGTFwBxE9');
-    console.log(data);
+    // console.log(data);
     const res = await axios.get(`https://airlabs.co/api/v9/nearby?lat=${data.location.lat}&lng=${data.location.lng}&distance=1000&api_key=39c7b782-e507-473a-af2f-0aba7de6c3a1`);
-    console.log(res.data.response.airports);
+    // console.log(res.data.response.airports);
    
     setAp(res.data.response.airports[0].iata_code)
     setCountry(data.location.country)
    }
    fetchGeo()
   }, []);
+
+
+
 
     let arr: SqlQuery[] = [];
 
