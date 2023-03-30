@@ -53,13 +53,11 @@ useEffect(() => {
     const res = await axios.get(`https://airlabs.co/api/v9/nearby?lat=${data.location.lat}&lng=${data.location.lng}&distance=1000&api_key=39c7b782-e507-473a-af2f-0aba7de6c3a1`);
     console.log(res.data.response.airports[0].iata_code);
 
-    setAp(res.data.response.airports[0].iata_code)
+    setAp(res.data.response.airports[0].icao_code)
     setCountry(data.location.country)
    }
 
-   fetchGeo()
-  
-
+   fetchGeo();
   }, []);
 
     let arr: SqlQuery[] = [];
