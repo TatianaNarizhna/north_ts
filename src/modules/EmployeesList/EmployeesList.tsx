@@ -20,7 +20,7 @@ const EmployeesList: React.FC<IEmplProps> = ({ employees }) => {
           </svg>
         </div>
       </header>
-      <div>
+      <div className={s.retreat}>
         <table>
           <thead>
               <tr>

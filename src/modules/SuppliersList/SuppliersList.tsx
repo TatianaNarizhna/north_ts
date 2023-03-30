@@ -12,7 +12,7 @@ const SuppliersList:React.FC<ISupplProps> = ({suppliers}) => {
 
     return (
     <section className={s.section}>
-    <div>
+    <div >
         <header className={s.header}>
             <p className={s.card_header}>Suppliers</p>
          <div className={s.svg_container}> 
@@ -21,7 +21,7 @@ const SuppliersList:React.FC<ISupplProps> = ({suppliers}) => {
            </svg>
           </div>
         </header>
-      <div>
+      <div className={s.retreat}>
           <table>
             <thead>
                 <tr>

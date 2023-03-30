@@ -38,6 +38,12 @@
   background-color: var(--title-white-color);
 } */
 
+.retreat {
+  padding-right: 38px;
+  background-color: var(--title-white-color);
+}
+
+
 .tr_media {
   display: none;
 }
@@ -58,7 +64,6 @@
     width: 6rem;
   }
 
-
   .link {
     text-align: right;
   }
@@ -67,11 +72,16 @@
     font-weight: 600;
   }
 
-  td:not(:first-child) {
+  /* td:not(:first-child) {
     border-bottom: 1px solid var(--border-gray-color);
-  }
+  } */
 
   td:last-child {
     border-bottom: 4px solid var(--border-gray-color);
   }
+
+  .retreat {
+   padding-right: 0;
+  }
 }
+

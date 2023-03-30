@@ -50,10 +50,10 @@ const SearchPage: React.FC = () => {
         )
     }
 
-    const fetchSearchResult = (searchResult: SearchProductsItem[] | SearchCustomersItem[]): searchResult is SearchProductsItem[] => {
-        console.log(searchResult[0])
-		return (searchResult[0] as SearchProductsItem) !== undefined;
-	};
+    // const fetchSearchResult = (searchResult: SearchProductsItem[] | SearchCustomersItem[]): searchResult is SearchProductsItem[] => {
+    //     console.log(searchResult[0])
+	// 	return (searchResult[0] as SearchProductsItem) !== undefined;
+	// };
     
 
     return (
@@ -146,42 +146,11 @@ const SearchPage: React.FC = () => {
 								  ))}
                                 </div>
                             )
- 
                             }
                         </div>
                     )
                     }
-
 				</div>
-
-
-             
-            {/* <output name="result" htmlFor="searchInput">
-					{responseData ? (
-						<>
-							{fetchSearchResult(responseData)
-								? responseData.map(({id, name, quantPerUnit, price, stock}, index) => (
-                                    <div key={id}>                   
-                                      <p className={s.output}>
-                                       <Link className={s.visited} to={`/product/${id}`}>{name}</Link>
-                                      </p>
-                                       <p className={s.rext_output}>#{index+1}, Quantity Per Unit:{quantPerUnit}, Price: {price}, Stock: {stock} </p>
-                                     </div>
-
-								  ))
-								: responseData.map(({ id, name, contact, title, phone }, index ) => (
-                                    <div key={id}>                   
-                                    <p className={s.output}>
-                                      <Link className={s.visited} to={`/customer/${id}`}>{name}</Link>
-                                    </p>
-                                    <p className={s.rext_output}>#{index+1}, Contact:{contact}, Title: {title}, Phone: {phone} </p>
-                                </div>
-								  ))}
-						</>
-					) : 
-						<p>No results</p>
-					}
-				</output> */}
 			</form>
             </div>
         </Section>

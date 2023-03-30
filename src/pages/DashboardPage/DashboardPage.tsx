@@ -30,19 +30,35 @@ const DashboardPage: React.FC<IProps> = ({ dash }: IProps) => {
    const [country, setCountry] = useState('');
    const [ap, setAp] = useState('');
 
-   useEffect(() => {
-    axios
-      .get(`https://api.ipregistry.co/?key=q66efvhmdo52s5lr`)
-      .then(function (response) {
-        axios
-          .get(
-            `https://airlabs.co/api/v9/nearby?lat=${response.data.location.latitude}&lng=${response.data.location.longitude}&distance=1000&api_key=07906dcf-2189-4800-aa00-03d171de2a0d`
-          )
-          .then(function (response) {
-            setCountry(response.data.response.airports[0].country_code);
-            setAp(response.data.response.airports[0].icao_code);
-          });
-      });
+//    useEffect(() => {
+//     axios
+//       .get(`https://api.ipregistry.co/?key=q66efvhmdo52s5lr`)
+//       .then(function (response) {
+//         axios
+//           .get(
+//             `https://airlabs.co/api/v9/nearby?lat=${response.data.location.latitude}&lng=${response.data.location.longitude}&distance=1000&api_key=39c7b782-e507-473a-af2f-0aba7de6c3a1`
+//           )
+//           .then(function (response) {
+//             setCountry(response.data.response.airports[0].country_code);
+//             setAp(response.data.response.airports[0].icao_code);
+//           });
+//       });
+
+//   }, []);
+
+useEffect(() => {
+   const fetchGeo = async () => {
+    const { data} = await axios.get('https://ip-geolocation.whoisxmlapi.com/api/v1?apiKey=at_fHHzq16vcnrB02eEuUi3CGTFwBxE9');
+    console.log(data);
+    const res = await axios.get(`https://airlabs.co/api/v9/nearby?lat=${data.location.lat}&lng=${data.location.lng}&distance=1000&api_key=39c7b782-e507-473a-af2f-0aba7de6c3a1`);
+    console.log(res.data.response.airports[0].iata_code);
+
+    setAp(res.data.response.airports[0].iata_code)
+    setCountry(data.location.country)
+   }
+
+   fetchGeo()
+  
 
   }, []);
 
@@ -71,7 +87,7 @@ const DashboardPage: React.FC<IProps> = ({ dash }: IProps) => {
         return acc;
         }, {resultsCount: 0, select: 0, selectWhere: 0, selectLeftJoin: 0}); 
     }
-    
+
     return (
         <Section >
           <div className={s.card_content}>
@@ -98,7 +114,7 @@ const DashboardPage: React.FC<IProps> = ({ dash }: IProps) => {
             {arr.map(({timeStart, timeTaken, sql, resultsCount }, i) => (
                 <div key={i} className={s.log_block}>
                     <p className={s.text_gray}>{timeStart},{timeTaken}ms</p>
-                    <p className={s.text_black}>{resultsCount},{sql}</p>
+                    <p className={s.text_black}>{sql}</p>
                 </div>
             ))}
           </div>

@@ -28,7 +28,7 @@ const OrdersList: React.FC<IOrdersProps> = ({ orders }) => {
             </svg>
           </div>
         </header>
-        <div>
+        <div className={s.retreat}>
           <table>
             <thead>
                 <tr>
@@ -48,7 +48,7 @@ const OrdersList: React.FC<IOrdersProps> = ({ orders }) => {
                     <>
                     <tr key={OrderId} className={s.tr_wide} style={{backgroundColor: i % 2 === 0 ? 'transparent' : 'var(--title-white-color)'}}>
                     <td><Link className={s.link} to={`/order/${OrderId}`}>{OrderId}</Link></td>
-                    <td>{TotalProductsPrice}</td>
+                    <td>${TotalProductsPrice.toFixed(2)}</td>
                     <td>{TotalProducts}</td>
                     <td>{TotalProductsItems}</td>
                     <td>{ correctData(Shipped)}</td>
@@ -57,9 +57,8 @@ const OrdersList: React.FC<IOrdersProps> = ({ orders }) => {
                     <td>{Country}</td>
                    </tr>
 
-
                    <tr key={ShipName} className={s.tr_media}>
-                    <td>
+                    <td className={s.border}>
                       <span className={s.span_media}>Id</span>
                       <Link className={s.link} to={`/order/${OrderId}`}>{OrderId}</Link></td>
                     <td><span className={s.span_media}>Total Price</span>{TotalProductsPrice}</td>

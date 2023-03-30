@@ -59,6 +59,7 @@ html {
   --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -2px rgba(0, 0, 0, 0.1);
   --radio-btn-color:  rgb(59, 130, 246);
+  --table-color: rgb(249, 250, 251);
 }
 
 button.css-kvsszq-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
@@ -74,6 +75,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 2px;
+  background-color: var(--table-color);
 }
 
 th {
@@ -96,10 +98,18 @@ td {
     display: none;
   }
 
+  td:not(:first-child) {
+    border-bottom: 1px solid var(--border-gray-color);
+  }
+
   td {
     display: flex;
     justify-content: space-between;
-    padding: 0.75rem 1rem;
+    padding: 0.85rem 1rem;
+  }
+
+  table {
+    background-color: var(--title-white-color);
   }
 }
 

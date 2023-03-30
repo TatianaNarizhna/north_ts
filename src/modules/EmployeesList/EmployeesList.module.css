@@ -42,6 +42,11 @@
   display: none;
 }
 
+.retreat {
+  padding-right: 38px;
+  background-color: var(--title-white-color);
+}
+
 @media screen and (max-width: 1024px) {
   .tr_wide {
     display: none;
@@ -69,4 +74,8 @@
   td:last-child {
     border-bottom: 4px solid var(--border-gray-color);
   }
+
+  .retreat {
+    padding-right: 0;
+   }
 }

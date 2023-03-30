@@ -38,6 +38,12 @@
   background-color: var(--title-white-color);
 } */
 
+.retreat {
+  padding-right: 38px;
+  background-color: white;
+}
+
+
 .tr_media {
   display: none;
 }
@@ -69,4 +75,8 @@
   td:last-child {
     border-bottom: 4px solid var(--border-gray-color);
   }
+
+  .retreat {
+    padding-right: 0;
+   }
 }

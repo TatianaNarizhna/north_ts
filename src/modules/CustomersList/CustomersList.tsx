@@ -21,7 +21,7 @@ const CustomersList: React.FC<ICustomerProps> = ({ customers }) => {
               </svg>
             </div>
           </header>
-          <div>
+          <div className={s.retreat}>
             <table>
               <thead>
                   <tr>

@@ -19,7 +19,7 @@ const ProductsList:React.FC<IProdProps> = ({ products }) => {
             </svg>
           </div>
         </header>
-        <div>
+        <div className={s.retreat}>
           <table>
             <thead>
                 <tr>
@@ -43,11 +43,11 @@ const ProductsList:React.FC<IProdProps> = ({ products }) => {
                     </tr>
 
                     <tr key={i} className={s.tr_media}>
-                        <td>
-                          <span className={s.span_media}>Name</span>
+                        <td className={s.border}>
+                          <span className={s.span_media}>Product</span>
                           <Link className={s.link} to={`/product/${id}`}>{name}</Link></td>
                         <td>
-                          <span className={s.span_media}>Qt per unit</span>
+                          <span className={s.span_media}>Qpu</span>
                           {qt}</td>
                         <td>
                           <span className={s.span_media}>Price</span>
